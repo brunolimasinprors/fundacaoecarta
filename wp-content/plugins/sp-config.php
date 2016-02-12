@@ -25,8 +25,7 @@ define('GRUPOS_PERMITIDOS', serialize($aryGruposPermitidos));
 define('INICIO_IP_INTRANET', '192.168.');
 
 define('URL_INTERNA_INTRANET', 'http://intranet.sinprors.org.br/');
-define('URL_EXTERNA_INTRANET', 'http://intranet.sinprors.org.br/');
-//define('URL_EXTERNA_INTRANET', 'http://sinprors.ddns.info:8888/');
+define('URL_EXTERNA_INTRANET', 'http://sinprors.ddns.info:8888/');
 
 define('COPYRIGHT_INFO', '© Copyright 2016, Fundação Ecarta - Todos os direitos reservados.');
 

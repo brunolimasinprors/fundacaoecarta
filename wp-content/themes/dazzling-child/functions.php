@@ -9,7 +9,7 @@
 include(ABSPATH."wp-content/plugins/sp-config.php");
 include(get_stylesheet_directory() . "/includes/extras.php");
 include(get_stylesheet_directory() . "/includes/complementar.php");
-
+include(get_stylesheet_directory() . "/includes/util.php");
 
 
 /*======================================================================

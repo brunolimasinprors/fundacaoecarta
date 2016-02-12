@@ -64,13 +64,13 @@ class autenticacaoIntegradaADSinpro {
 		/*-----------------------------------------------------------------------------------------------------	
 		'* Retorna o número do IP do computador cliente
 		'-------------------------------------------------------------------------------------------------------*/				
-		$ip = $_SERVER["REMOTE_ADDR"];
+		$ip = retornaIpCliente();
 		
 		/*-----------------------------------------------------------------------------------------------------	
 		'* Identifica se o acesso é interno (intranet) ou externo(extranet), aplicando o endereço equivalente	
 		'* a localização.
 		'-------------------------------------------------------------------------------------------------------*/				
-		if (strstr($ip, INICIO_IP_INTRANET)){ //> Acesso interno
+		if (strstr($ip, INICIO_IP_INTRANET) || strstr($ip, "127.0.0.1")){ //> Acesso interno
 			$servidor = URL_INTERNA_INTRANET."sistemas/autenticaAplicacaoAd.asp";
 		}else{ //> Acesso Externo
 			$servidor = URL_EXTERNA_INTRANET."sistemas/autenticaAplicacaoAd.asp";
