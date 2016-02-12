@@ -75,10 +75,10 @@ include(get_template_directory() . "-child/includes/complementar.php");
             </ul>
         </div>
 
-        <div class="content-area col-lg-2 col-xs-6 col-sm-3">            
+        <div class="content-area col-lg-2 col-xs-6 col-sm-3 apoio-rodape">            
             <ul class="list-unstyled"> 
                 <li class="titulo-item-rodape">apoio</li> 
-                <li><a href="#"><img src="http://placehold.it/87x32" /></a></li>
+                <li><a href="#"><img src="http://placehold.it/90x35" /></a></li>
             </ul>
         </div>
     </div>
@@ -111,7 +111,7 @@ include(get_template_directory() . "-child/includes/complementar.php");
     <form name="frmEmailsInformativo" id="frmEmailsInformativo" class="form-inline " action="<?= get_stylesheet_directory_uri() ?>/sp_emails_informativo.php">
         <div class="row">
             <div class="content-area col-lg-12 col-xs-12 col-sm-12">    
-                <ul class="list-inline itens-projeto-form-rodape">       
+                <ul class="list-inline itens-projeto-form-rodape fonte-areas-rodape">       
                     <li class="fonte-titulo-rodape">
                         <input class="todas" type="checkbox" value="todas"><font color="#DFE0E1 ">todas as áreas</font>
                     </li>	

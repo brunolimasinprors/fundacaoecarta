@@ -126,72 +126,97 @@ jQuery(document).ready(function ($) {
 
     });
 
-    $(".todas").click(function () {
-        //$(this).prop("checked", false);
-        $(".caixaCheckbox").each(function () {
+  $(".todas").click(function(){
+						//$(this).prop("checked", false);
+						$(".caixaCheckbox").each(function(){
+														 
+						   if ($(".todas").prop( "checked")) 
+						   $(this).prop("checked", true);
+						   else $(this).prop("checked", false);               
+							
+						 });
+						});
+		
+		 $("#btCadastrar").click(function(){
+		var teste = false;			
+							$(".campo-preenchimento-rodape").text("");
+				
+									
+ 				$('.caixaCheckbox').each(function() {
+					if($(this).prop("checked") == true){
+						teste = true;
+						return;					 
+					}
+					
+												  });
+				//return teste;
+				
+				if(!teste){
+					$(".campo-preenchimento-rodape").html("Selecione sua(s) <strong>área(s) de interesse</strong>. ");
+					$('.alerta-rodape').show();
+					return;
+				}
+					
+					if($("#txtNome").val() == ""){
+						$(".campo-preenchimento-rodape").html("O campo <strong>nome</strong> é de preenchimento obrigatório. ");
+						$('.alerta-rodape').show();
+						return;
+						
+					}
+					else if($("#txtEmail").val() == ""){
+						$(".campo-preenchimento-rodape").html("O campo <strong>e-mail</strong> é de preenchimento obrigatório. ");
+						$('.alerta-rodape').show();
+						
+					}
+					 else if($("#txtEmail").val() != ""){
+						var email = $("#txtEmail").val();
+						if( validarEmail(email)){
+							$('.alerta-rodape').hide();		
+							return;
+							}
+						else
+							$(".campo-preenchimento-rodape").html("O endereço de e-mail informado é <strong>inválido</strong>.");
+							$('.alerta-rodape').show();
+							return;
+					}
+					
+	});
+	 $(".botao-fecha-alerta").click(function(){
+				$('.alerta-rodape').hide();							 
+											 
+											 });
+	 
+	 function validarEmail(emailAddress) {
+    var verifica = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    return verifica.test(emailAddress);
+}
 
-            if ($(".todas").prop("checked"))
-                $(this).prop("checked", true);
-            else
-                $(this).prop("checked", false);
-
-        });
-    });
-
-    $("#btCadastrar").click(function () {
-        var teste = false;
-        $(".campo-preenchimento-rodape").text("");
+$('#carousel-galeria-imagens').carousel({
+  interval: false
+});
 
 
-        $('.caixaCheckbox').each(function () {
-            if ($(this).prop("checked") == true) {
-                teste = true;
-                return;
-            }
 
-        });
-        //return teste;
+ 
+$('#menuCarousel[data-type="multi"] .menu-galeria-imagem').each(function(){							 
 
-        if (!teste) {
-            $(".campo-preenchimento-rodape").html("Selecione sua(s) <strong>área(s) de interesse</strong>. ");
-            $('.alerta-rodape').show();
-            return;
-        }
-
-        if ($("#txtNome").val() == "") {
-            $(".campo-preenchimento-rodape").html("O campo <strong>nome</strong> é de preenchimento obrigatório. ");
-            $('.alerta-rodape').show();
-            return;
-
-        } else if ($("#txtEmail").val() == "") {
-            $(".campo-preenchimento-rodape").html("O campo <strong>e-mail</strong> é de preenchimento obrigatório. ");
-            $('.alerta-rodape').show();
-
-        } else if ($("#txtEmail").val() != "") {
-            var email = $("#txtEmail").val();
-            if (validarEmail(email)) {
-                $('.alerta-rodape').hide();
-                return;
-            } else
-                $(".campo-preenchimento-rodape").html("O endereço de e-mail informado é <strong>inválido</strong>.");
-            $('.alerta-rodape').show();
-            return;
-        }
-
-    });
-    $(".botao-fecha-alerta").click(function () {
-        $('.alerta-rodape').hide();
-
-    });
-
-    function validarEmail(emailAddress) {
-        var verifica = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-        return verifica.test(emailAddress);
-    }
-
-    $('#carousel-galeria-imagens').carousel({
-        interval: false
-    });
+ var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=0;i<5;i++) {
+    next=next.next();
+    if (!next.length) {
+    	next = $(this).siblings(':first');
+  	}
+    
+    next.children(':first-child').clone().appendTo($(this));
+  }
+ 
+	
+	});
 
 });
 
