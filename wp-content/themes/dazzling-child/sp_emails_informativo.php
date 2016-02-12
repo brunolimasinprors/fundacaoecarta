@@ -9,19 +9,25 @@ include '../../../wp-load.php';
 if (isset($_POST['projetos'])) {
     $aryProjetos = $_POST['projetos'];
 } else {
-    $msgRetorno = "É necessário selecionar um projeto";
+    $msgRetorno = "Selecione sua(s) <strong>área(s) de interesse</strong>.";
 }
 
 if (isset($_POST['txtNome'])) {
     $nome = $_POST['txtNome'];
 } elseif (!isset($msgRetorno)) {
-    $msgRetorno = "É necessário informar um nome";
+    $msgRetorno = "O campo <strong>nome</strong> é de preenchimento obrigatório.";
 }
 
-if (isset($_POST['txtEmail']) && is_email($_POST['txtEmail'])) {
-    $email = $_POST['txtEmail'];
+
+if (isset($_POST['txtEmail'])) {
+
+    if (is_email($_POST['txtEmail'])) {
+        $email = $_POST['txtEmail'];
+    } elseif (!isset($msgRetorno)) {
+        $msgRetorno = "O endereço de e-mail informado é <strong>inválido</strong>.";
+    }
 } elseif (!isset($msgRetorno)) {
-    $msgRetorno = "É necessário informar um email válido";
+    $msgRetorno = "O campo <strong>e-mail</strong> é de preenchimento obrigatório.";
 }
 
 if (!empty($msgRetorno)) {
@@ -38,7 +44,7 @@ if (!empty($msgRetorno)) {
      * entrada: BRUNO mendEs lIMa
      * Saída  : Bruno Mendes Lima
      */
-    $nome = ucwords($nome);
+    $nome = ucwords(strtolower($nome));
 
     //remove os espaços antes e depois da string
     $email = trim($email);
@@ -77,12 +83,11 @@ if (!empty($msgRetorno)) {
 
     // Registro o email para o qual deve ser encaminhado o informativo
     $wpdb->insert(
-        'sp_emails_informativo', 
-        array(
-            'nome' => $nome,
-            'email' => $email,
-            'ip' => retornaIpCliente() 
-        )
+            'sp_emails_informativo', array(
+        'nome' => $nome,
+        'email' => $email,
+        'ip' => retornaIpCliente()
+            )
     );
 
     //Se a inclusão foi com sucesso, associamos os projetos selecionados
@@ -107,7 +112,7 @@ if (!empty($msgRetorno)) {
                 break;
             }
         }
-
+        
         if (!$erro) {
             $retorno = array('success' => 1, 'mensagem' => 'E-mail cadastrado com sucesso');
         } else {

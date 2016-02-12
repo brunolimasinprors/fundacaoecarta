@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {  
+jQuery(document).ready(function ($) {
     /*
      Carrosel chamadas principais site
      */
@@ -126,97 +126,101 @@ jQuery(document).ready(function ($) {
 
     });
 
-  $(".todas").click(function(){
-						//$(this).prop("checked", false);
-						$(".caixaCheckbox").each(function(){
-														 
-						   if ($(".todas").prop( "checked")) 
-						   $(this).prop("checked", true);
-						   else $(this).prop("checked", false);               
-							
-						 });
-						});
-		
-		 $("#btCadastrar").click(function(){
-		var teste = false;			
-							$(".campo-preenchimento-rodape").text("");
-				
-									
- 				$('.caixaCheckbox').each(function() {
-					if($(this).prop("checked") == true){
-						teste = true;
-						return;					 
-					}
-					
-												  });
-				//return teste;
-				
-				if(!teste){
-					$(".campo-preenchimento-rodape").html("Selecione sua(s) <strong>área(s) de interesse</strong>. ");
-					$('.alerta-rodape').show();
-					return;
-				}
-					
-					if($("#txtNome").val() == ""){
-						$(".campo-preenchimento-rodape").html("O campo <strong>nome</strong> é de preenchimento obrigatório. ");
-						$('.alerta-rodape').show();
-						return;
-						
-					}
-					else if($("#txtEmail").val() == ""){
-						$(".campo-preenchimento-rodape").html("O campo <strong>e-mail</strong> é de preenchimento obrigatório. ");
-						$('.alerta-rodape').show();
-						
-					}
-					 else if($("#txtEmail").val() != ""){
-						var email = $("#txtEmail").val();
-						if( validarEmail(email)){
-							$('.alerta-rodape').hide();		
-							return;
-							}
-						else
-							$(".campo-preenchimento-rodape").html("O endereço de e-mail informado é <strong>inválido</strong>.");
-							$('.alerta-rodape').show();
-							return;
-					}
-					
-	});
-	 $(".botao-fecha-alerta").click(function(){
-				$('.alerta-rodape').hide();							 
-											 
-											 });
-	 
-	 function validarEmail(emailAddress) {
-    var verifica = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-    return verifica.test(emailAddress);
-}
+    $(".todas").click(function () {
+        //$(this).prop("checked", false);
+        $(".caixaCheckbox").each(function () {
 
-$('#carousel-galeria-imagens').carousel({
-  interval: false
-});
+            if ($(".todas").prop("checked"))
+                $(this).prop("checked", true);
+            else
+                $(this).prop("checked", false);
+
+        });
+    });
+
+    $("#btCadastrar").click(function () {
+
+        var teste = false;
+
+        $(".campo-preenchimento-rodape").text("");
+        $('.alerta-rodape').hide();
+
+        $('.caixaCheckbox').each(function () {
+            if ($(this).prop("checked") == true) {
+                teste = true;
+                return;
+            }
+
+        });
+
+        if (!teste) {
+            $(".campo-preenchimento-rodape").html("Selecione sua(s) <strong>área(s) de interesse</strong>. ");
+            $('.alerta-rodape').show();
+            return;
+        }
+
+        if ($("#txtNome").val() == "") {
+            $(".campo-preenchimento-rodape").html("O campo <strong>nome</strong> é de preenchimento obrigatório. ");
+            $('.alerta-rodape').show();
+            return;
+
+        }
+
+        if ($("#txtEmail").val() == "") {
+
+            $(".campo-preenchimento-rodape").html("O campo <strong>e-mail</strong> é de preenchimento obrigatório. ");
+            $('.alerta-rodape').show();
+
+        } else {
+            var email = $("#txtEmail").val();
+
+            if (!validarEmail(email)) {
+                $(".campo-preenchimento-rodape").html("O endereço de e-mail informado é <strong>inválido</strong>.");
+                $('.alerta-rodape').show();
+                return;
+            }
+        }
+
+        enviaDadosFormAjax('frmEmailsInformativo', null, 'campo-preenchimento-rodape');
+
+    });
+
+    $(".botao-fecha-alerta").click(function () {
+        $('.alerta-rodape').hide();
+
+    });
+
+    function validarEmail(emailAddress) {
+        var verifica = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        return verifica.test(emailAddress);
+    }
+
+    $('#carousel-galeria-imagens').carousel({
+        interval: false
+    });
 
 
 
- 
-$('#menuCarousel[data-type="multi"] .menu-galeria-imagem').each(function(){							 
 
- var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
-  
-  for (var i=0;i<5;i++) {
-    next=next.next();
-    if (!next.length) {
-    	next = $(this).siblings(':first');
-  	}
-    
-    next.children(':first-child').clone().appendTo($(this));
-  }
- 
-	
-	});
+    $('#menuCarousel[data-type="multi"] .menu-galeria-imagem').each(function () {
+
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 5; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+
+            next.children(':first-child').clone().appendTo($(this));
+        }
+
+
+    });
 
 });
 
@@ -229,7 +233,7 @@ $('#menuCarousel[data-type="multi"] .menu-galeria-imagem').each(function(){
  idDivRetorno = Identificação da div de retorno do processamento
  */
 //idForm, urlDestino, idDivRetorno
-function enviaDadosFormAjax(idForm, urlDestino, idDivRetorno) {
+function enviaDadosFormAjax(idForm, urlDestino, idTagRetorno) {
     var dados = jQuery('#' + idForm).serialize(); //> Retorna os dados do formulário a ser enviado.
 
     /* torna opcional informar a url de destino na função, permitindo resgatar do atributo <ACTION> da tag <FORM> */
@@ -244,27 +248,25 @@ function enviaDadosFormAjax(idForm, urlDestino, idDivRetorno) {
         async: true,
         data: dados,
         success: function (response) {
-               alert(response); 
+
             /* Necessita verificar o padrão de retorno  do projeto da fundação */
             /** Por enquanto não usado **/
-            if (idDivRetorno) {
-                jQuery('#' + idDivRetorno).fadeIn(1000); //> Exibe div <mensagem_retorno> gradativamente  após o tempo <1000> milissegundos 
-                jQuery('#' + idDivRetorno).html(response["mensagem"]); //> Exibe mensagem de retorno do ajax a div <mensagem_retorno> 
+            if (idTagRetorno) {
 
-                //> Adiciona a classe da mensagem corrrespondente
-                /*if (response["success"] == 1) {
-                    jQuery('#' + idDivRetorno).removeClass("mensagem_erro");
-                    jQuery('#' + idDivRetorno).addClass("mensagem_sucesso");
-                } else {
-                    jQuery('#' + idDivRetorno).removeClass("mensagem_sucesso");
-                    jQuery('#' + idDivRetorno).addClass("mensagem_erro");
-                }
-                //response["success"]
-*/
+                jQuery('#' + idTagRetorno).fadeIn(1000); //> Exibe tag <mensagem_retorno> gradativamente  após o tempo <1000> milissegundos 
+                jQuery('#' + idTagRetorno).html(response["mensagem"]); //> Exibe mensagem de retorno do ajax a tag <mensagem_retorno>
 
                 if (response["success"] == true) { //> Quando os dados forão efetivados						
                     resetForm(idForm); //> Reseta dos dados do formulário.
+                    jQuery('.alerta-rodape').removeClass('alert-danger');
+                    jQuery('.alerta-rodape').addClass('alert-success');
+                } else {
+                    jQuery('.alerta-rodape').removeClass('alert-success');
+                    jQuery('.alerta-rodape').addClass('alert-danger');
                 }
+
+                jQuery('.alerta-rodape').show();
+
             }
 
         }
