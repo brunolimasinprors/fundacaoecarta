@@ -52,5 +52,6 @@ $arySlugAreasConteudo[] = "historico";
 
 define('SLUG_AREAS_CONTEUDO', serialize($arySlugAreasConteudo));
 
+//> Teste de publicação
 
 ?>
