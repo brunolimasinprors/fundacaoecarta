@@ -81,7 +81,7 @@ if (!empty($msgRetorno)) {
         array(
             'nome' => $nome,
             'email' => $email,
-            'ip' => retornaIpCliente()
+            'ip' => retornaIpCliente() 
         )
     );
 
