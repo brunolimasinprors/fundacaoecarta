@@ -76,9 +76,9 @@
 		</div>
 
 
-	</main><!-- #main -->
+	
 
-		
+	<?php get_template_part('content-fotos', get_post_format());	 ?>		
 		
 
 <?php get_footer(); ?>

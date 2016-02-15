@@ -119,7 +119,7 @@ include(get_template_directory() . "-child/includes/complementar.php");
     <form name="frmEmailsInformativo" id="frmEmailsInformativo" class="form-inline " action="<?= get_stylesheet_directory_uri() ?>/sp_emails_informativo.php">
         <div class="row">
             <div class="content-area col-lg-12 col-xs-12 col-sm-12">    
-                <ul class="list-inline itens-projeto-form-rodape">       
+                <ul class="list-inline itens-projeto-form-rodape fonte-areas-rodape">       
                     <li class="fonte-titulo-rodape">
                         <input class="todas" type="checkbox" value="todas"><font color="#DFE0E1 ">todas as áreas</font>
                     </li>	
@@ -159,7 +159,7 @@ include(get_template_directory() . "-child/includes/complementar.php");
                 </div>
 
                 <div class="form-group">
-                    <button id="btCadastrar" name="btCadastrar" type="button" class="btn button-form-rodape" onclick="enviaDadosFormAjax('frmEmailsInformativo',null,'alerta-rodape');">cadastrar</button>
+                    <button id="btCadastrar" name="btCadastrar" type="button" class="btn button-form-rodape">cadastrar</button>
                     <div style="display: inline-flex; font-size: 10px;line-height: 10px;">
                         Clicando em cadastrar você corcorda em receber por e-mail<br/>as novidades da Ecarta (seu e-mail não será compartilhado com terceiros)
                     </div>
@@ -173,9 +173,9 @@ include(get_template_directory() . "-child/includes/complementar.php");
 
             </div>
             <div class="content-area col-lg-6 col-xs-12 col-sm-12 " >  
-                <div id="alerta-rodape" class="alert alert-danger alert-dismissible alerta-rodape" role="alert"  >
+                <div class="alert alert-danger alert-dismissible alerta-rodape" role="alert"  >
                     <button type="button" class="close botao-fecha-alerta" ><span aria-hidden="true">×</span></button>
-                    <p class="campo-preenchimento-rodape"></p>
+                    <p id="campo-preenchimento-rodape" class="campo-preenchimento-rodape"></p>
                 </div>
             </div>
         </div>
