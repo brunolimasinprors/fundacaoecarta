@@ -46,16 +46,15 @@ get_header(); ?>
 
 
 
-	<?php            
-	/* 
-	 * * Exibe a relação de projetos na capa do site 
-	 *				>> ÁREA 4 / PROJETOS
-	 */
-	get_template_part('content-area4_projetos_capa', get_post_format());		
-	?>
+    <?php            
+    /* 
+     * * Exibe a relação de projetos na capa do site 
+     *				>> ÁREA 4 / PROJETOS
+     */
+    get_template_part('content-area4_projetos_capa', get_post_format());		
+    ?>
 
-    
-        
+
         
 
               

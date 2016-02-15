@@ -15,12 +15,17 @@ include(get_template_directory() . "-child/includes/complementar.php");
 
 <div id="footer-area">
     <div class="rodape area5">
-        <p class="text-center">
-            <strong>Fundação Cultural e Assistencial ECARTA</strong></br>
-            Av. João Pessoa, 943 - Farroupilha - CEP 90040-000 - Porto Alegre - RS - Fone (51) 4009 2970
-        </p>
+        <?php            
+        /* 
+         * * Exibe o endereço na capa do site 
+         *				>> ÁREA 5 / ENDEREÇO
+         */
+        get_template_part('content-area5_endereco_capa', get_post_format());		
+        ?>
     </div>
 
+    
+    
     <div class="row">
         <div class="content-area col-lg-2 col-xs-6 col-sm-3">
             <ul class="list-unstyled">                      
@@ -30,9 +35,7 @@ include(get_template_directory() . "-child/includes/complementar.php");
 
         <div class="content-area col-lg-2 col-xs-6 col-sm-3">		        
             <ul class="list-unstyled"> 
-                <li class="titulo-item-rodape">parcerias</li>                     
-                <li><a href="#">apresentação</a></li> 
-                <li><a href="#">agenda</a></li>                     
+                <?php exibeTagsMenuRodape($objCategoriaParcerias); ?>					                
             </ul>
         </div>
 
@@ -76,10 +79,15 @@ include(get_template_directory() . "-child/includes/complementar.php");
         </div>
 
         <div class="content-area col-lg-2 col-xs-6 col-sm-3">            
-            <ul class="list-unstyled"> 
-                <li class="titulo-item-rodape">apoio</li> 
-                <li><a href="#"><img src="http://placehold.it/87x32" /></a></li>
-            </ul>
+
+            <?php            
+            /* 
+             * * Exibe o apoiadores na capa do site 
+             *				>> ÁREA 6 / APOIO
+             */
+            get_template_part('content-area6_apoio_capa', get_post_format());		
+            ?>
+
         </div>
     </div>
 

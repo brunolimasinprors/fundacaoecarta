@@ -515,6 +515,7 @@ input[type=checkbox].caixaCheckbox{
 	background-color: #606062 !important;
 	color:#FFF;
 	padding-top:6px;
+        text-align: center;
 }
 
 .copyright-ropape{

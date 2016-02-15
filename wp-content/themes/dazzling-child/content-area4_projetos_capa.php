@@ -13,9 +13,8 @@
 	   $Conteudo .= '<div class="slide-carousel-horizontal-capa carousel slide" data-ride="carousel" data-type="multi" id="area-slide-carousel-projetos-capa" data-interval="0">';
 		  $Conteudo .= '<div class="carousel-inner">';
 		
-
+		$count = 0;
 		if ($objCategoriasFilhasProjeto) {
-		  $count = 0;
 		  /*=================================================================================================================	
 		  '* Retorna a relação de categorias filhas de projeto, com imagem vinculada
 		  '=================================================================================================================*/					
