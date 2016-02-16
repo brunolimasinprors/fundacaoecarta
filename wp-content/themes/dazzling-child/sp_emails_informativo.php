@@ -12,14 +12,14 @@ if (isset($_POST['projetos'])) {
     $msgRetorno = "É necessário selecionar um projeto";
 }
 
-if (isset($_POST['txtNome'])) {
-    $nome = $_POST['txtNome'];
+if (isset($_POST['txtNome']) && !empty(trim($_POST['txtNome']))) {
+    $nome = retornaStringNomeDb($_POST['txtNome']);
 } elseif (!isset($msgRetorno)) {
     $msgRetorno = "É necessário informar um nome";
 }
 
 if (isset($_POST['txtEmail']) && is_email($_POST['txtEmail'])) {
-    $email = $_POST['txtEmail'];
+    $email = retornaStringEmailDb($_POST['txtEmail']);
 } elseif (!isset($msgRetorno)) {
     $msgRetorno = "É necessário informar um email válido";
 }
@@ -29,27 +29,6 @@ if (!empty($msgRetorno)) {
     $retorno = array('success' => 0, 'mensagem' => $msgRetorno);
     echo json_encode($retorno);
 } else {
-    //remove os espaços antes e depois da string
-    $nome = trim($nome);
-
-    /*
-     * garante que somente a primeira letra de cada palavra fique maiuscula 
-     * Ex: 
-     * entrada: BRUNO mendEs lIMa
-     * Saída  : Bruno Mendes Lima
-     */
-    $nome = ucwords($nome);
-
-    //remove os espaços antes e depois da string
-    $email = trim($email);
-
-    /*
-     * garante que toda a string fique minuscula 
-     * Ex: 
-     * entrada: BRUNOmendEslIMa@Gmail.com
-     * Saída  : brunomendeslima@gmail.com
-     */
-    $email = strtolower($email);
 
     /* =======================================================================================================	
       '* Verifica na base de dados se o e-mail informado já foi cadastrado e está com a sua situação ativa
@@ -77,12 +56,11 @@ if (!empty($msgRetorno)) {
 
     // Registro o email para o qual deve ser encaminhado o informativo
     $wpdb->insert(
-        'sp_emails_informativo', 
-         array(
-            'nome' => $nome,
-            'email' => $email,
-            'ip' => retornaIpCliente()
-        )
+            'sp_emails_informativo', array(
+        'nome' => $nome,
+        'email' => $email,
+        'ip' => retornaIpCliente()
+            )
     );
 
     //Se a inclusão foi com sucesso, associamos os projetos selecionados   
