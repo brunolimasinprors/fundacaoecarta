@@ -85,7 +85,7 @@ if (!empty($msgRetorno)) {
             )
     );
 
-    //Se a inclusão foi com sucesso, associamos os projetos selecionados
+    //Se a inclusão foi com sucesso, associamos os projetos selecionados   
     if (isset($wpdb->insert_id)) {
 
         $idEmailInformativo = $wpdb->insert_id;
