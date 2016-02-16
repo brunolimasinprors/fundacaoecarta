@@ -184,15 +184,15 @@ function pagina_edicao_capa_callback() {
 
     echo '<div class="wrap" style="height:1495px;"><div id="icon-tools" class="icon32"></div>';
     echo '<div id="capa-container">';
-    echo '<div id="logo-pagina-principal" url="themes.php?page=custom-header">EDITAR LOGO</div>';
-    echo '<div id="menu-topo-principal" url="nav-menus.php">EDITAR MENU PRINCIPAL</div>';    
-    echo '<div id="menu-topo-projetos" url="edit-tags.php?taxonomy=category" >EDITAR MENU PROJETOS</div>';
-    echo '<div id="area1" url="edit.php?post_type=area1_post_type" >EDITAR GALERIA DESTAQUES</div>';
-    echo '<div id="area2" url="edit.php?post_type=area2_post_type">EDITAR DESTAQUES AGENDA</div>';	    
-    echo '<div id="area3" url="edit.php?post_type=area3_post_type" >EDITAR DESTAQUES</div>';
-    echo '<div id="area4" url="edit-tags.php?taxonomy=category" >EDITAR PROJETOS</div>';        
-    echo '<div id="area5" url="edit.php?post_type=area5_post_type">EDITAR ENDEREÇO</div>';    
-    echo '<div id="area6" url="edit.php?post_type=area6_post_type">EDITAR APOIOS</div>';    
+        echo '<div id="logo-pagina-principal" url="themes.php?page=custom-header">EDITAR LOGO</div>';
+        echo '<div id="menu-topo-principal" url="nav-menus.php">EDITAR MENU PRINCIPAL</div>';    
+        echo '<div id="menu-topo-projetos" url="edit-tags.php?taxonomy=category" >EDITAR MENU PROJETOS</div>';
+        echo '<div id="area1" url="edit.php?post_type=area1_post_type" >EDITAR GALERIA DESTAQUES</div>';
+        echo '<div id="area2" url="edit.php?post_type=area2_post_type">EDITAR DESTAQUES AGENDA</div>';	    
+        echo '<div id="area3" url="edit.php?post_type=area3_post_type" >EDITAR DESTAQUES</div>';
+        echo '<div id="area4" url="edit-tags.php?taxonomy=category" >EDITAR PROJETOS</div>';        
+        echo '<div id="area5" url="edit.php?post_type=area5_post_type">EDITAR ENDEREÇO</div>';    
+        echo '<div id="area6" url="edit.php?post_type=area6_post_type">EDITAR APOIOS</div>';    
 
     echo '</div></div>';
 }

@@ -32,7 +32,7 @@
     }
 
 
-    $Conteudo .= '<div class="media media-agenda box-item-agenda">';
+    $Conteudo .= '<div class="media media-agenda box-item-agenda" projeto="'.$aryDadosCategoria["slug"].'">';
       $Conteudo .= '<a href="'.get_field("link_area_2").'" class="link-agenda">';									
       $Conteudo .= '<div class="media-left">';									
 	  

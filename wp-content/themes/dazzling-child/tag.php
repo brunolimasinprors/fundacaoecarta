@@ -20,11 +20,16 @@ get_header();
                         /*=================================================================================================================	
                         '* Exibe menu lateral
                         '=================================================================================================================*/					
-                        get_template_part('content-menu_lateral', get_post_format());		
+                        //get_template_part('content-menu_lateral_agenda', get_post_format());		
                     ?>                           
                 </div>				
                 <div class="content-area col-sm-12 col-md-9">
-                        teste aaa
+                    <?php
+                    /*=================================================================================================================	
+                    '* Exibe a relação de eventos da <<AGENDA>>
+                    '=================================================================================================================*/					
+                    get_template_part('content-agenda', get_post_format());		
+                    ?>                          
                 </div> 					
             </div>
             <div class="row">

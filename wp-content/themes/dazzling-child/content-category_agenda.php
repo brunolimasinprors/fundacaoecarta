@@ -7,6 +7,7 @@
 	$args = array(
 		'post_type' => 'area2_post_type', //> Tipo de post <area2_post_type>
 		'post_status'=> 'publish', //> Exibir post com a situação publicado				
+		'cat' => $idCategoriaPrincipalAcessada, //> id categoria		
 		'meta_query' => array(
 			array(
 				'key'		=> 'data_fim_area_2',
@@ -30,14 +31,12 @@
 	while ( $query->have_posts() ) {
 		
 		$query->the_post();
-
-                $idCategoriaPrincipal = retornaIdCategoriaPrincipalPost($post->ID);							
-                $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipal);                
-                
-                /*=======================================================================================================	
+		
+		
+		/*=======================================================================================================	
 		'* Exibe Conteúdo agenda
 		'========================================================================================================*/							
-                include(get_template_directory() . "-child/includes/conteudo-agenda.php");
+		include(get_template_directory() . "-child/includes/conteudo-agenda.php");
 
 		$count ++;
 	}	

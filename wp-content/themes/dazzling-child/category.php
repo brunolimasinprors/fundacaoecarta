@@ -40,7 +40,7 @@ get_header();
 						'* Exibe conteúdo agenda
 						'=================================================================================================================*/					
 						if ($objTerms[0]->slug == "agenda"){
-							get_template_part('content-agenda', get_post_format());	
+							get_template_part('content-category_agenda', get_post_format());	
 
 						}elseif ($objTerms[0]->slug == "historico"){
 							get_template_part('content-historico', get_post_format());	

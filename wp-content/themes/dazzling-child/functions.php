@@ -331,14 +331,6 @@ function retornaUrlTag($pSlugTag, $pUrl){
 	}
 }
 
-/*=======================================================================================================	
-'* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
-'========================================================================================================*/	
-function retornaDiaSemanaPorExtenso($idDiaSemana){
-	$aryDiaSemanaPorExtenso = array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", 
-"Sábado");			
-	return $aryDiaSemanaPorExtenso[$idDiaSemana];
-}
 
 /*=================================================================================================================	
 '* Exibe estilo css das categorias filhas de projeto

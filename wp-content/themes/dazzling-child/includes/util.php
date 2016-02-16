@@ -56,3 +56,23 @@ function retornaStringEmailDb($param_email) {
 
     return $email;
 }
+
+
+/*=======================================================================================================	
+'* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
+'========================================================================================================*/	
+function retornaDiaSemanaPorExtenso($idDiaSemana){
+	$aryDiaSemanaPorExtenso = array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", 
+"Sábado");			
+	return $aryDiaSemanaPorExtenso[$idDiaSemana];
+}
+
+
+/*=======================================================================================================	
+'* Retorna o nome do mês, por extenso, informando o id do mês.
+'========================================================================================================*/	
+function retornaMesPorExtenso($idMes){
+	$aryMesesPorExtenso = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+"Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");		
+	return $aryMesesPorExtenso[$idMes];
+}
