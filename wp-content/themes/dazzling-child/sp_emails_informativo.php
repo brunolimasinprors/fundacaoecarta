@@ -26,8 +26,9 @@ if (isset($_POST['txtEmail']) && is_email($_POST['txtEmail'])) {
 
 if (!empty($msgRetorno)) {
 
-    $retorno = array('success' => 0, 'mensagem' => $msgRetorno);
+    $retorno = array('success' => false, 'mensagem' => utf8_encode($msgRetorno));
     echo json_encode($retorno);
+    
 } else {
 
     /* =======================================================================================================	
@@ -87,9 +88,22 @@ if (!empty($msgRetorno)) {
         }
 
         if (!$erro) {
-            $retorno = array('success' => 1, 'mensagem' => 'E-mail cadastrado com sucesso');
+            $retorno = array('success' => true, 'mensagem' => utf8_encode('E-mail cadastrado com sucesso'));
+
+            $destino = 'bruno.lima@sinprors.org.br';
+            $assunto = 'Teste e-mail wordpress';
+            $mensagem = '<strong>Testando o envio de emails pelo wordpress</strong>';
+
+            /* necessário para utilizar emails com cópia */
+            $multiplos_destinos = array(
+                'bruno.lima@sinprors.org.br',
+                'bruno.lima@sinprors.org.br'
+            );
+
+            $arr = enviaEmail($multiplos_destinos, $assunto, $mensagem);
+            //$arr = enviaEmail($destino, $assunto, $mensagem);
         } else {
-            $retorno = array('success' => 0, 'mensagem' => 'Erro ao efetuar o cadastrado do e-mail');
+            $retorno = array('success' => false, 'mensagem' => utf8_encode('Erro ao efetuar o cadastrado do e-mail'));
         }
         echo json_encode($retorno);
     }
