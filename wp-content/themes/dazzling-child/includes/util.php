@@ -56,3 +56,52 @@ function retornaStringEmailDb($param_email) {
 
     return $email;
 }
+
+
+/*=======================================================================================================	
+'* Efetua o envio de e-mails.
+'*
+'* $aryRetorno = enviaEmail("bruno.lima@sinprors.org.br", "assunto email", "<p>Mensagem do <strong>e-mail</strong></p>");
+'* echo $aryRetorno["mensagem"];
+'========================================================================================================*/				
+function enviaEmail($para, $assunto, $mensagem) {
+	/*=======================================================================================================	
+	'* Ativa o formato HTML para o envio de e-mails
+	'========================================================================================================*/				
+	add_filter('wp_mail_content_type','set_content_type');
+	
+	function set_content_type($content_type){
+		return 'text/html';
+	}
+	
+	add_filter( 'phpmailer_init', 'rw_change_phpmailer_object' );
+	function rw_change_phpmailer_object( $phpmailer )
+	{
+		$phpmailer->IsHTML(true);
+	}		
+	
+	/*=======================================================================================================	
+	'* Inicializa variáveis
+	'========================================================================================================*/				
+	$retorno = null;
+	$strErro = null;
+	
+	/*=======================================================================================================	
+	'* Valida os dados informados
+	'========================================================================================================*/				
+	if (empty($para)  && empty($strErro)) $strErro = "É obrigatório informar o <strong>destinatário do e-mail >PARA<</strong>.";				
+	
+	if (empty($strErro)){				
+		$retorno = wp_mail($para,$assunto,$mensagem);
+		
+		if ($retorno){				
+			return array("success" => true, "mensagem" => 'Dados enviados com sucesso.');				
+		}else{
+			return array("success" => false, "mensagem" => 'Erro no envio do e-mail.');									
+		}
+		
+	}else{
+		return array("success" => false, "mensagem" => utf8_encode($strErro));				
+	}
+}
+
