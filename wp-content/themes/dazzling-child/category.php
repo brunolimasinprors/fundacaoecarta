@@ -7,21 +7,10 @@
  */
 	
 	
+padraoRedirecionamentoSite(get_query_var('tag_id'), $idCategoriaPrincipalAcessada);	 
 	
-	
-	
-	
-	padraoRedirecionamentoSite(get_query_var('tag_id'), $idCategoriaPrincipalAcessada);	 
-
-	
-	
-		//echo $tagSlugAcessada;
-	
-
-	//> INCLUI CABEÇALHO 
-	get_header(); 
-
-
+//> INCLUI CABEÇALHO 
+get_header(); 
 ?>	
 
 <section id="primary" class="content-area col-sm-12 col-md-12">
@@ -40,7 +29,7 @@
 				</div>				
 				<div class="content-area col-sm-12 col-md-9">
 					<?php            
-                    /* 
+                     /* 
                      *				>> AGENDA
                      */
 					$idTagAcessada = get_query_var('tag_id');
@@ -59,8 +48,6 @@
 							get_template_part('content-padrao', get_post_format());		
 						}
 					}					
-					//echo retornaUrlComplementarCategorias();
-					//echo get_site_url();
 					?>
 				</div> 					
 			</div>

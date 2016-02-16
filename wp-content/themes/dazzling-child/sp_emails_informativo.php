@@ -12,45 +12,24 @@ if (isset($_POST['projetos'])) {
     $msgRetorno = "É necessário selecionar um projeto";
 }
 
-if (isset($_POST['txtNome'])) {
-    $nome = $_POST['txtNome'];
+if (isset($_POST['txtNome']) && !empty(trim($_POST['txtNome']))) {
+    $nome = retornaStringNomeDb($_POST['txtNome']);
 } elseif (!isset($msgRetorno)) {
     $msgRetorno = "É necessário informar um nome";
 }
 
 if (isset($_POST['txtEmail']) && is_email($_POST['txtEmail'])) {
-    $email = $_POST['txtEmail'];
+    $email = retornaStringEmailDb($_POST['txtEmail']);
 } elseif (!isset($msgRetorno)) {
     $msgRetorno = "É necessário informar um email válido";
 }
 
 if (!empty($msgRetorno)) {
 
-    $retorno = array('success' => 0, 'mensagem' => $msgRetorno);
+    $retorno = array('success' => false, 'mensagem' => utf8_encode($msgRetorno));
     echo json_encode($retorno);
     
 } else {
-    //remove os espaços antes e depois da string
-    $nome = trim($nome);
-
-    /*
-     * garante que somente a primeira letra de cada palavra fique maiuscula 
-     * Ex: 
-     * entrada: BRUNO mendEs lIMa
-     * Saída  : Bruno Mendes Lima
-     */
-    $nome = ucwords($nome);
-
-    //remove os espaços antes e depois da string
-    $email = trim($email);
-
-    /*
-     * garante que toda a string fique minuscula 
-     * Ex: 
-     * entrada: BRUNOmendEslIMa@Gmail.com
-     * Saída  : brunomendeslima@gmail.com
-     */
-    $email = strtolower($email);
 
     /* =======================================================================================================	
       '* Verifica na base de dados se o e-mail informado já foi cadastrado e está com a sua situação ativa
@@ -81,11 +60,11 @@ if (!empty($msgRetorno)) {
             'sp_emails_informativo', array(
         'nome' => $nome,
         'email' => $email,
-        'ip' => $_SERVER["REMOTE_ADDR"]
+        'ip' => retornaIpCliente()
             )
     );
 
-    //Se a inclusão foi com sucesso, associamos os projetos selecionados
+    //Se a inclusão foi com sucesso, associamos os projetos selecionados   
     if (isset($wpdb->insert_id)) {
 
         $idEmailInformativo = $wpdb->insert_id;
@@ -109,9 +88,22 @@ if (!empty($msgRetorno)) {
         }
 
         if (!$erro) {
-            $retorno = array('success' => 1, 'mensagem' => 'E-mail cadastrado com sucesso');            
+            $retorno = array('success' => true, 'mensagem' => utf8_encode('E-mail cadastrado com sucesso'));
+
+            $destino = 'bruno.lima@sinprors.org.br';
+            $assunto = 'Teste e-mail wordpress';
+            $mensagem = '<strong>Testando o envio de emails pelo wordpress</strong>';
+
+            /* necessário para utilizar emails com cópia */
+            $multiplos_destinos = array(
+                'bruno.lima@sinprors.org.br',
+                'bruno.lima@sinprors.org.br'
+            );
+
+            $arr = enviaEmail($multiplos_destinos, $assunto, $mensagem);
+            //$arr = enviaEmail($destino, $assunto, $mensagem);
         } else {
-            $retorno = array('success' => 0, 'mensagem' => 'Erro ao efetuar o cadastrado do e-mail');
+            $retorno = array('success' => false, 'mensagem' => utf8_encode('Erro ao efetuar o cadastrado do e-mail'));
         }
         echo json_encode($retorno);
     }

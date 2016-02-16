@@ -143,7 +143,11 @@ jQuery(document).ready(function ($) {
         var teste = false;
 
         $(".campo-preenchimento-rodape").text("");
+        
+        //Para evitar conflito no layout da tag de retorno
         $('.alerta-rodape').hide();
+        jQuery('.alerta-rodape').removeClass('alert-danger');
+        jQuery('.alerta-rodape').removeClass('alert-success');
 
         $('.caixaCheckbox').each(function () {
             if ($(this).prop("checked") == true) {
@@ -155,12 +159,14 @@ jQuery(document).ready(function ($) {
 
         if (!teste) {
             $(".campo-preenchimento-rodape").html("Selecione sua(s) <strong>área(s) de interesse</strong>. ");
+            jQuery('.alerta-rodape').addClass('alert-danger');
             $('.alerta-rodape').show();
             return;
         }
 
         if ($("#txtNome").val() == "") {
             $(".campo-preenchimento-rodape").html("O campo <strong>nome</strong> é de preenchimento obrigatório. ");
+            jQuery('.alerta-rodape').addClass('alert-danger');
             $('.alerta-rodape').show();
             return;
 
@@ -169,6 +175,7 @@ jQuery(document).ready(function ($) {
         if ($("#txtEmail").val() == "") {
 
             $(".campo-preenchimento-rodape").html("O campo <strong>e-mail</strong> é de preenchimento obrigatório. ");
+            jQuery('.alerta-rodape').addClass('alert-danger');
             $('.alerta-rodape').show();
 
         } else {
@@ -176,6 +183,7 @@ jQuery(document).ready(function ($) {
 
             if (!validarEmail(email)) {
                 $(".campo-preenchimento-rodape").html("O endereço de e-mail informado é <strong>inválido</strong>.");
+                jQuery('.alerta-rodape').addClass('alert-danger');
                 $('.alerta-rodape').show();
                 return;
             }

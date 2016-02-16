@@ -57,7 +57,7 @@ include(get_stylesheet_directory() . "/includes/complementar.php");
 
                     <!-- Menu --> 
                     <div class="collapse navbar-collapse navbar-ex1-collapse">                    
-                        <?php dazzling_header_menu_customizado(); ?>
+                        <?php  dazzling_header_menu_customizado();  ?>
 
                         <div class="contentbusca navbar-right">
                             <!--
