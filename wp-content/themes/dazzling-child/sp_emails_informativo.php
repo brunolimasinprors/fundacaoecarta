@@ -28,7 +28,6 @@ if (!empty($msgRetorno)) {
 
     $retorno = array('success' => 0, 'mensagem' => $msgRetorno);
     echo json_encode($retorno);
-    
 } else {
     //remove os espaços antes e depois da string
     $nome = trim($nome);
@@ -78,11 +77,12 @@ if (!empty($msgRetorno)) {
 
     // Registro o email para o qual deve ser encaminhado o informativo
     $wpdb->insert(
-            'sp_emails_informativo', array(
-        'nome' => $nome,
-        'email' => $email,
-        'ip' => $_SERVER["REMOTE_ADDR"]
-            )
+        'sp_emails_informativo', 
+         array(
+            'nome' => $nome,
+            'email' => $email,
+            'ip' => retornaIpCliente()
+        )
     );
 
     //Se a inclusão foi com sucesso, associamos os projetos selecionados   
@@ -109,7 +109,7 @@ if (!empty($msgRetorno)) {
         }
 
         if (!$erro) {
-            $retorno = array('success' => 1, 'mensagem' => 'E-mail cadastrado com sucesso');            
+            $retorno = array('success' => 1, 'mensagem' => 'E-mail cadastrado com sucesso');
         } else {
             $retorno = array('success' => 0, 'mensagem' => 'Erro ao efetuar o cadastrado do e-mail');
         }
