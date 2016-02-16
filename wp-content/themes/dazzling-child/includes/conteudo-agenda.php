@@ -1,4 +1,37 @@
 <?php
+
+    $objImagem = get_field('imagem_area_2');
+    $creditoImagem = retornaPadraoTituloImagem($objImagem);
+
+
+    $dataInicio =  date("d/m/Y",strtotime(get_field("data_inicio_area_2")));
+    $dataFim =  date('d/m/Y', strtotime(get_field("data_fim_area_2")));
+
+
+    if ($dataInicio != $dataFim){
+            $strComplementoData = "Até";	
+            $dataExibicao = date("d/m",strtotime(get_field("data_fim_area_2")));
+
+    }else{
+            $diaSemana = date("w",strtotime(get_field("data_inicio_area_2")));
+            $totalCaracteresDiaSemana = 3;
+            if ($diaSemana == 6){ //> Ascento do sábado
+                    $totalCaracteresDiaSemana = 4; 
+            }
+
+            $strComplementoData = substr(retornaDiaSemanaPorExtenso($diaSemana), 0, $totalCaracteresDiaSemana);
+            $dataExibicao = date("d/m",strtotime(get_field("data_inicio_area_2")));															
+    }
+
+    /*=======================================================================================================	
+    '* Seta a classe <active> o primeiro evento da agenda a ser exibido.
+    '========================================================================================================*/							
+    $ativo = "";
+    if ($count == 0){
+            $ativo = "active";
+    }
+
+
     $Conteudo .= '<div class="media media-agenda box-item-agenda">';
       $Conteudo .= '<a href="'.get_field("link_area_2").'" class="link-agenda">';									
       $Conteudo .= '<div class="media-left">';									

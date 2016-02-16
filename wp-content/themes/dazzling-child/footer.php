@@ -44,15 +44,13 @@ include(get_template_directory() . "-child/includes/complementar.php");
         <div class="content-area col-lg-2 col-xs-6 col-sm-3">	            
             <ul class="list-unstyled"> 				
                 <li class="titulo-item-rodape">projetos</li> 
-                <div class="fonte-opcoes-rodape" style="line-height:1.3;">
-                    <?php
-                    if ($objCategoriasFilhasProjeto) {
-                        foreach ($objCategoriasFilhasProjeto as $term) {
-                            echo '<li> <a href="' . get_term_link($term) . '">' . $term->name . '</a></li>';
-                        } //> foreach($pObjCategoriasFilhasProjeto as $term) 
-                    } //> if ($pObjCategoriasFilhasProjeto){
-                    ?>
-                </div>  
+                <?php
+                if ($objCategoriasFilhasProjeto) {
+                    foreach ($objCategoriasFilhasProjeto as $term) {
+                        echo '<li> <a href="' . get_term_link($term) . '">' . $term->name . '</a></li>';
+                    } //> foreach($pObjCategoriasFilhasProjeto as $term) 
+                } //> if ($pObjCategoriasFilhasProjeto){
+                ?>
             </ul>
         </div>
 

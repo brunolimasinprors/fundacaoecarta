@@ -48,56 +48,15 @@
 							
 							$idCategoriaPrincipal = retornaIdCategoriaPrincipalPost($post->ID);							
 							$aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipal);
-							
-							$cssCorCategoria = null;
-							$cssBordaCategoria = null;
-							$cssCorFundoCategoria = null;							
-							
-							if (!empty($aryDadosCategoria["cor"])){
-								$cssCorCategoria = $aryDadosCategoria["slug"]."_color";
-								$cssBordaCategoria = $aryDadosCategoria["slug"]."_border-color";
-								$cssCorFundoCategoria = $aryDadosCategoria["slug"]."_background-color";
-							}else{
-								$cssCorCategoria = "categoria_padrao_color";
-								$cssBordaCategoria = "categoria_padrao_border-color";
-								$cssCorFundoCategoria = "categoria_padrao_background-color";
-							}
-							
 								
 							
-							$objImagem = get_field('imagem_area_2');
-							$creditoImagem = retornaPadraoTituloImagem($objImagem);
-							
-
-							$dataInicio =   date("d/m/Y",strtotime(get_field("data_inicio_area_2")));
-						    $dataFim =  date('d/m/Y', strtotime(get_field("data_fim_area_2")));
-							
-							
-							if ($dataInicio != $dataFim){
-								$strComplementoData = "até";	
-								$dataExibicao = date("d/m",strtotime(get_field("data_fim_area_2")));
-								
-							}else{
-								$diaSemana = date("w",strtotime(get_field("data_inicio_area_2")));
-								$totalCaracteresDiaSemana = 3;
-								if ($diaSemana == 6){ //> Ascento do sábado
-									$totalCaracteresDiaSemana = 4; 
-								}
-								
-								$strComplementoData = substr(retornaDiaSemanaPorExtenso($diaSemana), 0, $totalCaracteresDiaSemana);
-								$dataExibicao = date("d/m",strtotime(get_field("data_inicio_area_2")));															
-							}
-							
-							
-							
-							/*=======================================================================================================	
+                                                        /*=======================================================================================================	
 							'* Seta a classe <active> o primeiro evento da agenda a ser exibido.
 							'========================================================================================================*/							
 							$ativo = "";
 							if ($count == 0){
 								$ativo = "active";
-							}
-						
+							}						
 						
 							$Conteudo .= '<div class="item '.$ativo.' ">';
 							
