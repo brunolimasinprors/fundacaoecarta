@@ -971,7 +971,7 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
 
 .caixa-dropdown-historico-eventos{
     height:25px !important;
-    background: #F58634 !important;
+    /*background: #F58634 !important;*/
     border-top-left-radius:0 !important;
     border-top-right-radius:0 !important;
     margin-top:13px;

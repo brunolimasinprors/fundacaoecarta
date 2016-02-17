@@ -3,16 +3,16 @@
   '* Exibe Conteúdo do histórico
   '======================================================================================================== */
 /* retirando variáveis da memória */
-$objImagem = null;
-$urlImagem = null;
+$objImagem     = null;
+$urlImagem     = null;
 $creditoImagem = null;
-$chamada = null;
+$chamada       = null;
 $data_fim_area = null;
-$cidade = null;
-$dia = null;
-$idMes = null;
-$idMes = null;
-$anoFim = null;
+$cidade        = null;
+$dia           = null;
+$idMes         = null;
+$idMes         = null;
+$anoFim        = null;
 $mesPorExtenso = null;
 
 /* Retorno as informações que serão exibidas */
@@ -24,14 +24,14 @@ $urlImagem = $objImagem["url"];
 $creditoImagem = retornaPadraoTituloImagem($objImagem);
 
 
-$chamada = get_field("chamada_area_2");
+$chamada       = get_field("chamada_area_2");
 $data_fim_area = get_field("data_fim_area_2");
-$cidade = get_field('cidade_area_2');
+$cidade        = get_field('cidade_area_2');
 
 /* recupero as informações da data para montar o layout */
-$dia = date('d', strtotime($data_fim_area));
-$idMes = date('m', strtotime($data_fim_area));
-$idMes = (int) $idMes; //converte para inteiro
+$dia    = date('d', strtotime($data_fim_area));
+$idMes  = date('m', strtotime($data_fim_area));
+$idMes  = (int) $idMes; //converte para inteiro
 $anoFim = date('Y', strtotime($data_fim_area));
 
 $mesPorExtenso = retornaMesPorExtenso($idMes);
@@ -43,7 +43,7 @@ $mesPorExtenso = retornaMesPorExtenso($idMes);
         <div class="thumbnail espacamento-eventos-historico-eventos">
             <div class="caption espacamento-linhas-historico-eventos">
 
-                <img class="img-responsive imagem-agenda" src="<?= $urlImagem; ?>"  alt="<?= $creditoImagem; ?>"  title="<?= $creditoImagem; ?>" width="70"  />
+                <img class="img-responsive imagem-agenda" src="<?= $urlImagem; ?>"  alt="<?= $creditoImagem; ?>"  title="<?= $creditoImagem; ?>" width="150" height="100"  />
                 <h6 class="espacamento-linhas-historico-eventos"><?= $chamada; ?></h6>
 
                 <p><?= $dia; ?> de <?= $mesPorExtenso; ?></p>

@@ -1,4 +1,5 @@
 <?php
+
 include(get_template_directory() . "-child/includes/complementar.php");
 /* =================================================================================================================	
   '* Retorna a relação de posts pertencentes a <<categoria principal acessada>>
@@ -53,10 +54,10 @@ if ($query->have_posts()) {
         if ($anoPublicacao !== $ultimoAno) {
             ?>
 
-            <div class = "panel-group espacamento-painel-dropdown-historico-eventos" id = "accordion" role = "tablist" aria-multiselectable = "true" >
+            <div class = "panel-group espacamento-painel-dropdown-historico-eventos " id = "accordion" role = "tablist" aria-multiselectable = "true" >
                 <div class = "panel panel-default painel-historico-eventos">
 
-                    <div class = "panel-heading caixa-dropdown-historico-eventos " id = "heading<?= $anoPublicacao; ?>" >
+                    <div class = "panel-heading caixa-dropdown-historico-eventos <?=$aryDadosCategoria['background-color_css'];?>" id = "heading<?= $anoPublicacao; ?>" >
                         <a class = "accordion-toggle" data-toggle = "collapse" data-parent = "#" href = "#collapse<?= $anoPublicacao; ?>">
                             <h3 class = "panel-title text-center ano-historico-eventos " >
 
@@ -72,7 +73,7 @@ if ($query->have_posts()) {
                                 <?php
                                 while ($query->have_posts()) {
                                     $query->the_post();
-                                    
+
                                     $anoFim = null;
                                     $anoFim = date('Y', strtotime(get_field("data_fim_area_2")));
 
@@ -86,9 +87,8 @@ if ($query->have_posts()) {
 
                                         $count++;
                                     } //if ($anoFim == $anoPublicacao) {
-                                    
+
                                     unset($anoFim); //evitar erros de sujeira na memória
-                                    
                                 } //while ($query->have_posts()) {
                                 ?>
                             </div>        
@@ -99,12 +99,9 @@ if ($query->have_posts()) {
             <?php
             $ultimoAno = $anoPublicacao;
         } //if ($anoPublicacao !== $ultimoAno) {
-        
     } //foreach ($arrAnosPublicados as $anoPublicacao) {
-    
 } //if ($query->have_posts()) {
 
 unset($query);
 unset($arrAnosPublicados);
-
 ?>

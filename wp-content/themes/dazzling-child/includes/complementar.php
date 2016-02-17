@@ -25,7 +25,8 @@
             /*=================================================================================================================	
             '* Retorna o Layout/Informações da categoria principal informada.
             '=================================================================================================================*/					
-            $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipalAcessada);
+            $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipalAcessada);            
+                        
             if ($aryDadosCategoria){
                     $imagemCategoria = $aryDadosCategoria["imagem"];
                     $cssDestacarLink = "destacar-link-projeto";
