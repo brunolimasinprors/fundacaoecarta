@@ -13,13 +13,13 @@ if (isset($_POST['projetos'])) {
 }
 
 if (isset($_POST['txtNome']) && !empty(trim($_POST['txtNome']))) {
-    $nome = retornaStringNomeDb($_POST['txtNome']);
+    $nome = sanitize_text_field($_POST['txtNome']);
 } elseif (!isset($msgRetorno)) {
     $msgRetorno = "É necessário informar um nome";
 }
 
 if (isset($_POST['txtEmail']) && is_email($_POST['txtEmail'])) {
-    $email = retornaStringEmailDb($_POST['txtEmail']);
+    $email = sanitize_email($_POST['txtEmail']);
 } elseif (!isset($msgRetorno)) {
     $msgRetorno = "É necessário informar um email válido";
 }
@@ -28,7 +28,6 @@ if (!empty($msgRetorno)) {
 
     $retorno = array('success' => false, 'mensagem' => utf8_encode($msgRetorno));
     echo json_encode($retorno);
-    
 } else {
 
     /* =======================================================================================================	
