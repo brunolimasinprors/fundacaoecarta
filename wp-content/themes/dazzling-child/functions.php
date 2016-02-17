@@ -6,13 +6,13 @@
  * @subpackage dazzling-child
  */
 //> Area de Admin
-include(get_stylesheet_directory() . "/includes/theme-admin.php");
-include(get_stylesheet_directory() . "/includes/areas-admin.php");
+include_once(get_stylesheet_directory() . "/includes/theme-admin.php");
+include_once(get_stylesheet_directory() . "/includes/areas-admin.php");
 
-include(get_stylesheet_directory() . "/includes/complementar.php");
-include(get_stylesheet_directory() . "/includes/util.php");
+include_once(get_stylesheet_directory() . "/includes/complementar.php");
+include_once(get_stylesheet_directory() . "/includes/util.php");
 
-include(ABSPATH."wp-content/plugins/sp-config.php");
+include_once(ABSPATH."wp-content/plugins/sp-config.php");
 
 /*======================================================================
 '* TELA DE LOGIN
@@ -314,9 +314,27 @@ function get_category_tags($idCategoria) {
     ");
     $count = 0;
     foreach ($tags as $tag) {
-            $tags[$count]->tag_link = get_tag_link($tag->tag_id);
-            $count++;
+        $tags[$count]->tag_link = get_tag_link($tag->tag_id);
+        
+        if ($tags[$count]->tag_slug == "agenda"){
+            $objTag = get_term_by("slug", "historico", "post_tag");
+
+            $aryDados = array(
+                    'tag_id' => $objTag->term_id,
+                    'tag_name' => $objTag->name,
+                    'tag_link' => get_tag_link($objTag->term_id),
+                    'tag_slug' => $objTag->slug,
+                    'post_total' => $objTag->count);
+
+            array_push($tags,(object) $aryDados);
+
+            
+        }
+        
+        $count++;
     }
+
+    
     return $tags;
 }
 
@@ -454,11 +472,14 @@ function exibeTagsMenuRodape($pObjCategoria){
 	
 		//> Retorna objeto conforme o id da tag informada
 		if (!empty($pIdTagAcessada)){
-			echo $pIdTagAcessada;
 		
 			//> Objeto <<tag>> acessada 		
 			//>>>>>>>>>>>>>>>>>>>>>>>> get_the_tags
-			$objTerms = get_terms('post_tag', 'include='.$pIdTagAcessada);			
+                        $args = array(
+                            'include' => $pIdTagAcessada, //> Id da tag
+                            'hide_empty' => 0 //> Exibe todos os termos, mesmo sem post vinculado
+                        );
+			$objTerms = get_terms('post_tag', $args);			
 			
 			/*=================================================================================================================	
 			'* Não aplica redirecionamento para as <<áreas de conteúdo: SLUG_AREAS_CONTEUDO>>, informada no <<sp-config.php>>

@@ -34,8 +34,6 @@ get_header();
             </div>
             <div class="row">
                 <div class="content-area col-sm-12 col-md-12">	
-
-
                         XXXXXX asas sasa sasa <br/>
                         XXXXXX
                 </div> 					

@@ -120,5 +120,5 @@ function retornaDiaSemanaPorExtenso($idDiaSemana){
 function retornaMesPorExtenso($idMes){
 	$aryMesesPorExtenso = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
 "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");		
-	return $aryMesesPorExtenso[$idMes];
+        return $aryMesesPorExtenso[$idMes];
 }
