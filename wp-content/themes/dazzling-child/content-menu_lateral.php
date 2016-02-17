@@ -1,7 +1,7 @@
 	<?php
 
 	include(get_template_directory() . "-child/includes/complementar.php");
-
+        
 
 	if (!empty($imagemCategoria)){                    
 		echo '<div id="logo-area-conteudo"><img src="'.$imagemCategoria.'" alt="'.$tituloCategoria.'" title="'.$tituloCategoria.'" width="200"></div>';

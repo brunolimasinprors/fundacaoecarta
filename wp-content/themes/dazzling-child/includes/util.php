@@ -13,6 +13,9 @@ function retornaIpCliente() {
     return $ip;
 }
 
+/* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
+  '======================================================================================================== */
+
 /* =======================================================================================================	
   '* Efetua o envio de e-mails.
   '*
@@ -61,7 +64,8 @@ function enviaEmail($para, $assunto, $mensagem) {
     }
 }
 
-/* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
+/* ========================================================================================================
+  '* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
   '======================================================================================================== */
 
 function retornaDiaSemanaPorExtenso($idDiaSemana) {
@@ -69,6 +73,10 @@ function retornaDiaSemanaPorExtenso($idDiaSemana) {
         "Sábado");
     return $aryDiaSemanaPorExtenso[$idDiaSemana];
 }
+
+/* =======================================================================================================	
+  '* Retorna o nome do mês, por extenso, informando o id do mês.
+  '======================================================================================================== */
 
 /* =======================================================================================================	
   '* Retorna o nome do mês, por extenso, informando o id do mês.
