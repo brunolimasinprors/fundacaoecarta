@@ -1,5 +1,4 @@
 <?php
-
 include(get_template_directory() . "-child/includes/complementar.php");
 /* =================================================================================================================	
   '* Retorna a relação de posts pertencentes a <<categoria principal acessada>>
@@ -54,11 +53,12 @@ if ($query->have_posts()) {
         if ($anoPublicacao !== $ultimoAno) {
             ?>
 
-            <div class = "panel-group espacamento-painel-dropdown-historico-eventos " id = "accordion" role = "tablist" aria-multiselectable = "true" >
+            <div class = "panel-group espacamento-painel-dropdown-historico-eventos " id = "accordion" role = "tablist" aria-multiselectable = "true">
                 <div class = "panel panel-default painel-historico-eventos">
 
-                    <div class = "panel-heading caixa-dropdown-historico-eventos <?=$aryDadosCategoria['background-color_css'];?>" id = "heading<?= $anoPublicacao; ?>" >
-                        <a class = "accordion-toggle" data-toggle = "collapse" data-parent = "#" href = "#collapse<?= $anoPublicacao; ?>">
+                    <div class = "panel-heading caixa-dropdown-historico-eventos <?= $aryDadosCategoria['background-color_css']; ?>" id = "heading<?= $anoPublicacao; ?>" >
+                        <a role="button" class = "accordion-toggle <?= ($count == 0) ? "" : "collapsed"; ?>" data-toggle = "collapse" data-parent = "#" href = "#collapse<?= $anoPublicacao; ?>">
+
                             <h3 class = "panel-title text-center ano-historico-eventos " >
 
                                 <?= $anoPublicacao; ?>
@@ -66,7 +66,7 @@ if ($query->have_posts()) {
                             </h3>
                         </a>
                     </div>
-                    <div id="collapse<?= $anoPublicacao; ?>" class="panel-collapse collapse in " role="tabpanel" aria-labelledby="heading<?= $anoPublicacao; ?>">
+                    <div id="collapse<?= $anoPublicacao; ?>" class="panel-collapse collapse <?= ($count == 0) ? "in" : ""; ?>" role="tabpanel" aria-labelledby="heading<?= $anoPublicacao; ?>">
                         <div class="panel-body espacamento-corpo-painel-historico-eventos caixa-dropdown-galeria" >
 
                             <div class="row">
@@ -84,8 +84,6 @@ if ($query->have_posts()) {
                                           '======================================================================================================== */
 
                                         include(get_template_directory() . "-child/includes/conteudo-historico.php");
-
-                                        $count++;
                                     } //if ($anoFim == $anoPublicacao) {
 
                                     unset($anoFim); //evitar erros de sujeira na memória
@@ -96,12 +94,60 @@ if ($query->have_posts()) {
                     </div>
                 </div>
             </div>
+
             <?php
             $ultimoAno = $anoPublicacao;
         } //if ($anoPublicacao !== $ultimoAno) {
+        $count++; //controlar o primeiro registro
     } //foreach ($arrAnosPublicados as $anoPublicacao) {
 } //if ($query->have_posts()) {
 
 unset($query);
 unset($arrAnosPublicados);
 ?>
+<!--
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Collapsible Group Item #1
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Collapsible Group Item #2
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Collapsible Group Item #3
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->

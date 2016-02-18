@@ -1024,13 +1024,13 @@ div.painel-historico-eventos{
 
     font-family: 'Glyphicons Halflings'; 
     content: "\e260";    
-    color: #737375 !important;
+    color: #FFF !important;
     font-size:9px;
     top:-2px;
 
 }
 .panel-heading .accordion-toggle.collapsed h3:after{
-    color: #737375 !important;
+    color: #FFF !important;
     font-size:9px;
     top:-2px;
     content: "\e259";   

@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
         var teste = false;
 
         $(".campo-preenchimento-rodape").text("");
-        
+
         //Para evitar conflito no layout da tag de retorno
         $('.alerta-rodape').hide();
         jQuery('.alerta-rodape').removeClass('alert-danger');
