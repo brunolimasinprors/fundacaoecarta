@@ -4,13 +4,12 @@
     '* Retorna o id da tag acessada.
     '=================================================================================================================*/					
     $idTagAcessada = get_query_var('tag_id');
-
+    
 
     /*=================================================================================================================	
     '* Retorna a relação <ids> categorias url acessada.
     '=================================================================================================================*/					
     $aryIdsCategoriasAcessada = retornaIdsCategoriasUrlAcessada();
-
 
     $aryTags = array();
     $idCategoriaPrincipalAcessada = null;
@@ -26,7 +25,8 @@
             /*=================================================================================================================	
             '* Retorna o Layout/Informações da categoria principal informada.
             '=================================================================================================================*/					
-            $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipalAcessada);
+            $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipalAcessada);            
+                        
             if ($aryDadosCategoria){
                     $imagemCategoria = $aryDadosCategoria["imagem"];
                     $cssDestacarLink = "destacar-link-projeto";
@@ -56,6 +56,7 @@
     '* Se o conteúdo acessado for post, retorna o slug da tag acessada.
     '=================================================================================================================*/					
     $tagSlugAcessada = null;
+    $posttags = array();
     if (is_single()){
             $posttags = get_the_tags(get_the_ID());
             if ($posttags) {
@@ -64,8 +65,12 @@
     }else{
             //$idTagAcessada	
             if (!empty($idTagAcessada)){
-                    $posttags = get_tags("include=".$idTagAcessada);
-                    $tagSlugAcessada = $posttags[0]->slug;
+                    $args = array(
+                        'include' => $idTagAcessada, //> Id da tag
+                        'hide_empty' => 0 //> Exibe todos os termos, mesmo sem post vinculado
+                    );
+                    $posttags = get_tags($args);
+                    $tagSlugAcessada = $posttags[0]->slug; 
             }
     }
 
@@ -100,5 +105,4 @@
            $objCategoriasFilhasProjeto[] = $objCategoria;           
        }        
     }
-    
 ?>
