@@ -104,7 +104,7 @@ function enviaEmail($para, $assunto, $mensagem) {
 		return array("success" => false, "mensagem" => utf8_encode($strErro));				
 	}
 }
-
+/*
 '* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
 '========================================================================================================*/	
 function retornaDiaSemanaPorExtenso($idDiaSemana){

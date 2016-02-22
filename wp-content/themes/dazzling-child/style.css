@@ -1042,4 +1042,66 @@ div.painel-historico-eventos{
 	
 	
 }
+/*                                               
+     Agenda | Leonardo   
+                           */    
 
+.fonte-menu-lateral-agenda{
+    font-size:15px !important;
+    
+}
+
+.menu-select-agenda{
+    width: 200px;
+    margin-right: 40px;
+   margin-bottom: 55px;
+   margin-top: 20px;
+    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+   -moz-appearance: none; /* Remove estilo padrão do FireFox */
+   appearance: none; /* Remove estilo padrão do FireFox*/
+   background: url(http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/arrow1.png) no-repeat right;
+    padding:0;
+}
+
+@media  (max-width:1200px){
+    .menu-select-agenda{
+        width: 200px;
+        margin-right: 40px;
+       margin-bottom: 20px;
+       margin-top: 0px;
+        -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+       -moz-appearance: none; /* Remove estilo padrão do FireFox */
+       appearance: none; /* Remove estilo padrão do FireFox*/
+       background: url(http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/arrow1.png) no-repeat right;
+        padding:0;
+}
+	
+}
+
+/* Remove estilo padrão do Internet Explorer */
+ select::-ms-expand {
+    display: none;
+}
+
+.botao-filtro-agenda{
+    width:100px;
+    background: #FFF !important;
+	border: 1px solid #D7D7D9;
+	color:#999 !important;
+}
+
+.menu-lateral-agenda{
+    padding:0px;
+    
+}
+
+.icone-carregar-agenda{
+    position: absolute;
+    z-index: 100;
+  margin-left:30%;
+  
+}
+.opacity-agenda{
+     opacity: 0.7;
+    
+}

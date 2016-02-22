@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
         var teste = false;
 
         $(".campo-preenchimento-rodape").text("");
-        
+
         //Para evitar conflito no layout da tag de retorno
         $('.alerta-rodape').hide();
         jQuery('.alerta-rodape').removeClass('alert-danger');
@@ -228,6 +228,99 @@ jQuery(document).ready(function ($) {
         }
 
 
+    });
+    
+    //> Tempo de carregamento dos elementos da agenda
+    var tempoCarregamento = 500;
+    
+    $(".fonte-menu-lateral-agenda").click(function () {
+        var nomeProjeto = $(this).attr("projetos");
+        var cont = 0;
+        
+        //> Limpa o conteúdo da div de notificação
+        $("div .area-exibir-agenda").text("");
+        $("div .area-exibir-agenda1").text("");
+        
+        $("div .box-item-agenda").css("display", "none");
+        $("div .area-exibir-agenda").addClass("opacity-agenda");
+        $("div .area-exibir-agenda").html("<img class='icone-carregar-agenda' src='http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/carrega_agenda.gif' >")
+        //> Oculta todos os eventos
+        $("div .area-exibir-agenda").show();
+        $('div .box-item-agenda[projeto*="' + nomeProjeto + '"]').show(tempoCarregamento);
+       
+
+        if (!nomeProjeto) {
+            $("div .box-item-agenda").show(tempoCarregamento);
+             $("div .area-exibir-agenda").hide(tempoCarregamento);
+            return;
+        }
+
+        $('div .box-item-agenda').each(function () {
+            if ($(this).attr("projeto") == nomeProjeto) {
+                cont++;
+                return cont;
+
+            }
+
+
+        });
+        
+        if (cont >= 1) {
+             $("div .area-exibir-agenda").hide(tempoCarregamento);
+            return;
+        } else {
+            $("div .area-exibir-agenda1").html("<span>Nenhum evento cadastrado.</span>");
+            $("div .area-exibir-agenda").hide(tempoCarregamento);
+            $("div .area-exibir-agenda1").show(tempoCarregamento);
+            
+        }
+        
+
+    });
+
+    $(".botao-filtro-agenda").click(function () {
+        var cidades = $(".cidades-agenda").val();
+        var meses = $(".mes-agenda").val();
+      
+        //
+        //> Limpa o conteúdo da div de notificação
+        $("div .area-exibir-agenda").text("");
+        $("div .area-exibir-agenda1").text("");
+        
+        //>Caixa carregamento
+        $("div .area-exibir-agenda").addClass("opacity-agenda");
+        $("div .area-exibir-agenda").html("<img class='icone-carregar-agenda' src='http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/carrega_agenda.gif' >")
+        //> Oculta todos os eventos
+        $("div .area-exibir-agenda").show(tempoCarregamento);
+        $("div .box-item-agenda").hide(tempoCarregamento);
+        
+        
+      
+        
+        
+        if ((!cidades) && (!meses)) {
+            //> Exibe todos os eventos
+            $("div .box-item-agenda").show(tempoCarregamento);
+        }else if ((cidades) && (meses)){
+            //> Exibe eventos por cidade
+            
+            if($('div .box-item-agenda[cidade="' + cidades + '"][mes="'+meses+'"]').size() == 0){
+               $("div .area-exibir-agenda1").html("<span>Nenhum evento cadastrado.</span>");
+               $("div .area-exibir-agenda").hide(tempoCarregamento);
+               $("div .area-exibir-agenda1").show(tempoCarregamento);  
+              return;
+              
+            }else{
+               $('div .box-item-agenda[cidade="' + cidades + '"][mes="'+meses+'"]').show(tempoCarregamento); 
+            }
+        }else if (cidades){
+            //> Exibe eventos por cidade
+            $('div .box-item-agenda[cidade="' + cidades + '"]').show(tempoCarregamento);
+        }else if (meses){
+           $('div .box-item-agenda[mes="' + meses + '"]').show(tempoCarregamento);        
+        }
+            
+    $("div .area-exibir-agenda").hide(tempoCarregamento);
     });
 
 });

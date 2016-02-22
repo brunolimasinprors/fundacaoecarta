@@ -6,7 +6,7 @@
 
     $dataInicio =  date("d/m/Y",strtotime(get_field("data_inicio_area_2")));
     $dataFim =  date('d/m/Y', strtotime(get_field("data_fim_area_2")));
-
+    $Mes = retornaMesPorExtenso(date("n",strtotime(get_field("data_inicio_area_2"))));
 
     if ($dataInicio != $dataFim){
             $strComplementoData = "Até";	
@@ -32,7 +32,7 @@
     }
 
 
-    $Conteudo .= '<div class="media media-agenda box-item-agenda" projeto="'.$aryDadosCategoria["slug"].'">';
+    $Conteudo .= '<div class="media media-agenda box-item-agenda" projeto="'.$aryDadosCategoria["slug"].'" cidade="'.get_field('cidade_area_2').'" mes="'.$Mes.'">';
       $Conteudo .= '<a href="'.get_field("link_area_2").'" class="link-agenda">';									
       $Conteudo .= '<div class="media-left">';									
 	  

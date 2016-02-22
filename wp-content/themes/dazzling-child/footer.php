@@ -66,7 +66,7 @@ include(get_template_directory() . "-child/includes/complementar.php");
 
 
         <div class="content-area col-lg-2 col-xs-6 col-sm-3">	
-            siga
+            <span class="titulo-item-rodape list-unstyled">siga</span>
             <ul class="list-inline itens-siga-rodape"> 
                 <li><a href="#"><img class="icones-siga-rodape" src="http://placehold.it/20x20" /></a></li>
                 <li><a href="#"><img class="icones-siga-rodape" src="http://placehold.it/20x20" /></a></li>
