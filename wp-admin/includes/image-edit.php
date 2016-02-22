@@ -211,6 +211,7 @@ function wp_image_editor($post_id, $msg = false) {
  * @return bool
  */
 function wp_stream_image( $image, $mime_type, $post_id ) {
+        ob_clean (); 
 	if ( $image instanceof WP_Image_Editor ) {
 
 		/**
