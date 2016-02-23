@@ -65,12 +65,13 @@ function enviaEmail($para, $assunto, $mensagem) {
 }
 
 /*
-'* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
-'========================================================================================================*/	
-function retornaDiaSemanaPorExtenso($idDiaSemana){
-	$aryDiaSemanaPorExtenso = array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", 
-"Sábado");			
-	return $aryDiaSemanaPorExtenso[$idDiaSemana];
+  '* Retorna o nome do dia da semana, por extenso, informando o id do dia da semana.
+  '======================================================================================================== */
+
+function retornaDiaSemanaPorExtenso($idDiaSemana) {
+    $aryDiaSemanaPorExtenso = array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira",
+        "Sábado");
+    return $aryDiaSemanaPorExtenso[$idDiaSemana];
 }
 
 /* =======================================================================================================	
@@ -81,4 +82,30 @@ function retornaMesPorExtenso($idMes) {
     $aryMesesPorExtenso = array(1 => "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
         "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
     return $aryMesesPorExtenso[$idMes];
+}
+
+/* =======================================================================================================	
+  '* Retorna as palavras chaves no formato correto para indexação do google.
+  '======================================================================================================== */
+
+function formataPalavrasChave($param_string, $separador = '') {
+
+    $resultado = $param_string;
+
+    $arrPontuacao = array('.', ';', ':', "'");
+
+    //garante que apenas o separador seja utilizado    
+    foreach ($arrPontuacao as $pontuacao) {
+        $resultado = str_replace($pontuacao, $separador, $resultado);
+    }
+
+    //caso exista um separador, adiciona o espaço a esquerda
+    if (!empty($separador)) {
+        $resultado = trim(preg_replace('/' . $separador . '+/', $separador . ' ', $resultado));
+    }
+
+    //garante que existirá apenas um único espaço entre cada caractere.
+    $resultado = trim(preg_replace('/ +/', ' ', $resultado));
+
+    return $resultado;
 }

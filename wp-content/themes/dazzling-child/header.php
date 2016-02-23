@@ -9,19 +9,23 @@ include(get_stylesheet_directory() . "/includes/complementar.php");
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
+        <?php wp_head(); ?>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <?= (!empty($metaTitulo) ? $metaTitulo : ""); ?>
+        <?= (!empty($metaUrl) ? $metaUrl : ""); ?>
+        <?= (!empty($metaImagem) ? $metaImagem : ""); ?>
+        <?= (!empty($metaDescription) ? $metaDescription : ""); ?>
+        <?= (!empty($metaKeywords) ? $metaKeywords : ""); ?>
 
-    <?php wp_head(); ?>
-
-    <style>		
+        <style>		
 <?php cssProjetos($objCategoriasFilhasProjeto); ?>
-    </style>
-
+        </style>
+    </head>
 
 
     <body <?php body_class(); ?>>
@@ -50,14 +54,14 @@ include(get_stylesheet_directory() . "/includes/complementar.php");
                             <div id="logo">
                                 <span class="site-title"><a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php bloginfo('name'); ?></a></span>
                             </div><!-- end of #logo -->
-                        <?php endif; // header image was removed (again)  ?>
+                        <?php endif; // header image was removed (again)     ?>
 
                     </div>
 
 
                     <!-- Menu --> 
                     <div class="collapse navbar-collapse navbar-ex1-collapse">                    
-                        <?php  dazzling_header_menu_customizado();  ?>
+                        <?php dazzling_header_menu_customizado(); ?>
 
                         <div class="contentbusca navbar-right">
                             <!--
@@ -70,11 +74,11 @@ include(get_stylesheet_directory() . "/includes/complementar.php");
                         </div>
                     </div>
                 </div>
-                <div class="menu-projeto">   
+                <div class="menu-projeto">
                     <ul class="nav nav-pills itens-projeto">
-                        <?php exibeItensProjetosMenuTopoSite($objCategoriasFilhasProjeto, $aryIdsCategoriasAcessada); ?>						
+                        <?php exibeItensProjetosMenuTopoSite($objCategoriasFilhasProjeto, $aryIdsCategoriasAcessada); ?>
                     </ul>
-                </div>                    
+                </div>
             </nav><!-- .site-navigation -->
 
 
