@@ -92,15 +92,18 @@ function formataPalavrasChave($param_string, $separador = '') {
 
     $resultado = $param_string;
 
-    $arrPontuacao = array('.', ';', ':', "'");
-
-    //garante que apenas o separador seja utilizado    
-    foreach ($arrPontuacao as $pontuacao) {
-        $resultado = str_replace($pontuacao, $separador, $resultado);
-    }
-
     //caso exista um separador, adiciona o espaço a esquerda
     if (!empty($separador)) {
+
+        $arrPontuacao = array('.', ';', ':', "'", ',');
+
+        //garante que apenas o separador seja utilizado    
+        foreach ($arrPontuacao as $pontuacao) {
+            if ($separador !== $pontuacao) {
+                $resultado = str_replace($pontuacao, $separador, $resultado);
+            }
+        }
+
         $resultado = trim(preg_replace('/' . $separador . '+/', $separador . ' ', $resultado));
     }
 
