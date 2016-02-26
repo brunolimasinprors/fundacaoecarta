@@ -272,7 +272,6 @@ jQuery(document).ready(function ($) {
             $("div .area-exibir-agenda1").html("<span>Nenhum evento cadastrado.</span>");
             $("div .area-exibir-agenda").hide(tempoCarregamento);
             $("div .area-exibir-agenda1").show(tempoCarregamento);
-            
         }
         
 

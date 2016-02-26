@@ -15,34 +15,29 @@
     $idCategoriaPrincipalAcessada = null;
 
     if ($aryIdsCategoriasAcessada){
-            /*=================================================================================================================	
-            '* Retorna <id> categoria principal da relação de  <ids> categorias url acessada.
-            '=================================================================================================================*/					
-            $idCategoriaPrincipalAcessada = retornaIdCategoriaPrincipal($aryIdsCategoriasAcessada);			
+        /*=================================================================================================================	
+        '* Retorna <id> categoria principal da relação de  <ids> categorias url acessada.
+        '=================================================================================================================*/					
+        $idCategoriaPrincipalAcessada = retornaIdCategoriaPrincipal($aryIdsCategoriasAcessada);			
     }
 
+    
     if (!empty($idCategoriaPrincipalAcessada)){
-            /*=================================================================================================================	
-            '* Retorna o Layout/Informações da categoria principal informada.
-            '=================================================================================================================*/					
-            $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipalAcessada);            
-                        
-            if ($aryDadosCategoria){
-                    $imagemCategoria = $aryDadosCategoria["imagem"];
-                    $cssDestacarLink = "destacar-link-projeto";
-                    if (!empty($aryDadosCategoria["cor"])){
-                            $cssLinkCategoria = $aryDadosCategoria["slug"]."_link";	
-                            $cssColorCategoria = $aryDadosCategoria["slug"]."_color";	
-                    }else{
-                            $cssLinkCategoria = "categoria_padrao_link";
-                            $cssColorCategoria = "categoria_padrao_color";	
-                    }
-                    $tituloCategoria = $aryDadosCategoria["titulo"];
-            }
-            /*=================================================================================================================	
-            '* Retorna a relação de <tags>, relacionada a categoria principal para a exibição do <<menu lateral>>
-            '=================================================================================================================*/					
-            $aryTags = get_category_tags($idCategoriaPrincipalAcessada);		
+        /*=================================================================================================================	
+        '* Retorna o Layout/Informações da categoria principal informada.
+        '=================================================================================================================*/					
+        $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipalAcessada);                                    
+        if ($aryDadosCategoria){
+            $imagemCategoria = $aryDadosCategoria["imagem"];
+            $cssDestacarLink = "destacar-link-projeto";                    
+            $cssLinkCategoria = $aryDadosCategoria["link_css"];
+            $cssColorCategoria = $aryDadosCategoria["color_css"];        
+            $tituloCategoria = $aryDadosCategoria["titulo"];
+        }
+        /*=================================================================================================================	
+        '* Retorna a relação de <tags>, relacionada a categoria principal para a exibição do <<menu lateral>>
+        '=================================================================================================================*/					
+        $aryTags = get_category_tags($idCategoriaPrincipalAcessada);		
     }
 
 
@@ -56,22 +51,27 @@
     '* Se o conteúdo acessado for post, retorna o slug da tag acessada.
     '=================================================================================================================*/					
     $tagSlugAcessada = null;
+    $boolItemMenuHistorico = false;
     $posttags = array();
     if (is_single()){
-            $posttags = get_the_tags(get_the_ID());
-            if ($posttags) {
-              $tagSlugAcessada = $posttags[0]->slug;
-            }
+        $posttags = get_the_tags(get_the_ID());
+        if ($posttags) {
+          $tagSlugAcessada = $posttags[0]->slug;
+        }
+        
+        if ($tagSlugAcessada == "agenda"){
+            $boolItemMenuHistorico = pertenceHistoricoAgenda(get_the_ID());
+        }        
     }else{
-            //$idTagAcessada	
-            if (!empty($idTagAcessada)){
-                    $args = array(
-                        'include' => $idTagAcessada, //> Id da tag
-                        'hide_empty' => 0 //> Exibe todos os termos, mesmo sem post vinculado
-                    );
-                    $posttags = get_tags($args);
-                    $tagSlugAcessada = $posttags[0]->slug; 
-            }
+        //$idTagAcessada	
+        if (!empty($idTagAcessada)){
+            $args = array(
+                'include' => $idTagAcessada, //> Id da tag
+                'hide_empty' => 0 //> Exibe todos os termos, mesmo sem post vinculado
+            );
+            $posttags = get_tags($args);
+            $tagSlugAcessada = $posttags[0]->slug; 
+        }
     }
 
 
@@ -80,8 +80,6 @@
     '=================================================================================================================*/					
     $objCategoriaAFundacao = get_term_by('slug', 'a-fundacao', 'category');
     $objCategoriaParcerias = get_term_by('slug', 'parcerias', 'category');
-    
-    
     $objCategoriaProjeto = get_term_by('slug', 'projetos', 'category');
 
 
@@ -105,4 +103,5 @@
            $objCategoriasFilhasProjeto[] = $objCategoria;           
        }        
     }
+
 ?>
