@@ -72,6 +72,9 @@ function no_category_base_rewrite_rules($category_rewrite) {
 		$category_rewrite['(' . $category_nicename . ')/page/?([0-9]{1,})/?$'] = 'index.php?category_name=$matches[1]&paged=$matches[2]';
 		
 		$category_rewrite['(' . $category_nicename . ')/tag/?([^/]+)/?$'] = 'index.php?category_name=$matches[1]&tag=$matches[2]';		
+
+		$category_rewrite['(' . $category_nicename . ')/tag/?([^/]+)/?$/page/?([0-9]{1,})/?$'] = 'index.php?category_name=$matches[1]&tag=$matches[2]&paged=$matches[3]';		                
+                
 		 /*=> index.php?tag=$matches[1]*/
 		
 		$category_rewrite['(' . $category_nicename . ')/?$'] = 'index.php?category_name=$matches[1]';

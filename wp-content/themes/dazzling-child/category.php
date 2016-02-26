@@ -34,19 +34,21 @@ get_header();
                             get_template_part('content-category_agenda', get_post_format());
                         } elseif ($tag->slug == "historico") {
                             get_template_part('content-historico', get_post_format());
+                        } elseif ($tag->slug == "noticias") {
+                            get_template_part('content-noticias', get_post_format());
                         } else {
                             get_template_part('content-padrao', get_post_format());
                         }
                     }
+                     
                     ?>
                 </div> 					
             </div>
             <div class="row">
                 <div class="content-area col-sm-12 col-md-12">	
-                    XXXXXX asas sasa sasa <br/>
-                    XXXXXX
+                  
                 </div> 					
             </div>			
         </div>
-        <?php get_template_part('content-fotos', get_post_format()); ?>		
+        	
         <?php get_footer(); ?>

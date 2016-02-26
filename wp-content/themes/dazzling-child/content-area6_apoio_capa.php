@@ -27,7 +27,7 @@
 
                 $link = get_field("site_area_6");
                 if (empty($link)) $link = "#";                
-                $Conteudo .= '<li><a href="'.$link.'"><img class="img-responsive" src="'.$objImagem["url"].'" title="'.$creditoImagem.'" alt="'.$creditoImagem.'" width="87" /></a></li>';
+                $Conteudo .= '<li class="apoio-espacamento"><a href="'.$link.'"><img class="img-responsive" src="'.$objImagem["url"].'" title="'.$creditoImagem.'" alt="'.$creditoImagem.'" width="87" /></a></li>';
             }    
             $Conteudo .= '</ul>';        
         }    
