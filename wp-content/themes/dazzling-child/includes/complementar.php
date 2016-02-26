@@ -96,7 +96,7 @@ if (is_single()) {
     $palavras_chaves_post = get_field('palavras_chaves_post');
 
     if (!empty($palavras_chaves_post)) {
-        $palavrasChaves = formataPalavrasChave($palavras_chaves_post, ',');
+        $palavrasChaves = formataPalavrasChave($palavras_chaves_post, ',');   
     }
 
     //> Criação da metatag de palavras chaves
