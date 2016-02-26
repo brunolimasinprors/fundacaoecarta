@@ -26,7 +26,7 @@
                 } else {
                     $classProjeto = 'categoria_padrao_color ';
                 }
-                echo '<li class="' . $classProjeto . 'list-unstyled fonte-menu-lateral-agenda" projetos="'.$term->slug.'" name="projetos[]" value="' . $term->term_id . '"><a href="#">' . $term->name . '</a></li>';
+                echo '<li class="list-unstyled fonte-menu-lateral-agenda" projetos="'.$term->slug.'" name="projetos[]" value="' . $term->term_id . '"><a href="#" class=' . $classProjeto . '>' . $term->name . '</a></li>';
             }
         }
         ?>				
