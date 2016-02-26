@@ -33,6 +33,9 @@ define('DB_CHARSET', 'utf8mb4');
 /** O tipo de collate do banco de dados. Não altere isso se tiver dúvidas. */
 define('DB_COLLATE', '');
 
+/** Caminho onde será realizado o backup do banco de dados */
+define('DB_PATH_BACKUP', '');
+
 /**#@+
  * Chaves únicas de autenticação e salts.
  *
