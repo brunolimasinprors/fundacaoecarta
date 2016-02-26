@@ -87,3 +87,28 @@
             "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
         return $aryMesesPorExtenso[$idMes];
     }
+
+    /*
+     * Retorna as palavras chaves no formato correto para indexação do google.
+     * 
+     * @author Bruno Mendes Lima
+     * @version 25/02/2016
+    */    
+    function formataPalavrasChave($param_string, $separador = '') {
+        $resultado = $param_string;
+        //caso exista um separador, adiciona o espaço a esquerda
+        if (!empty($separador)) {
+            $arrPontuacao = array('.', ';', ':', "'", ',');
+            //garante que apenas o separador seja utilizado    
+            foreach ($arrPontuacao as $pontuacao) {
+                if ($separador !== $pontuacao) {
+                    $resultado = str_replace($pontuacao, $separador, $resultado);
+                }
+            }
+            $resultado = trim(preg_replace('/' . $separador . '+/', $separador . ' ', $resultado));
+        }
+        //garante que existirá apenas um único espaço entre cada caractere.
+        $resultado = trim(preg_replace('/ +/', ' ', $resultado));
+        return $resultado; 
+    }
+    
