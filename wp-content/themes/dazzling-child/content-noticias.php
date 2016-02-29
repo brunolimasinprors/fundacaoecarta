@@ -1,41 +1,42 @@
 <?php
-include(get_template_directory() . "-child/includes/complementar.php");
-/*=================================================================================================================	
+	include(get_template_directory() . "-child/includes/complementar.php");
+	/*=================================================================================================================	
 	'* Retorna a relação de posts pertencentes a <<categoria principal acessada>>
-	'=================================================================================================================*/						
-$args = array(
-    'post_type' => 'post', //> Tipo de post <area2_post_type>
-    'post_status' => 'publish', //> Exibir post com a situação publicado	
-    'cat' => $idCategoriaPrincipalAcessada, //> Id categoria principal acessada
-    'tag_id' => $idTagAcessada,
-    'posts_per_page' => 2, 
-   'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-    'orderby' => 'date',
-    'order' => 'DESC'
-);
-$query = new WP_Query($args);
-
-$Imagens = null;
-$Conteudo = null;
-$objImagem = null;
-$count = 0;
-
-
-	while ( $query->have_posts() ) {
-		
-		$query->the_post();
+	'=================================================================================================================*/
+	$idPagina = retornaPaginaAcessada(retornaUrlAtual());
+	if (empty($idPagina)){
+		$idPagina = 1;
+	}	
 	
-       
-		$idCategoriaPrincipal = retornaIdCategoriaPrincipalPost($post->ID);							
-                $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipal);                
-                
+	
+	$args = array(
+		'post_type' => 'post', //> Tipo de post <area2_post_type>
+		'post_status' => 'publish', //> Exibir post com a situação publicado	
+		'cat' => $idCategoriaPrincipalAcessada, //> Id categoria principal acessada
+		'tag_id' => $idTagAcessada,
+		'posts_per_page' => 2, 
+	    'paged' => $idPagina,
+		'orderby' => 'date',
+		'order' => 'DESC'
+	);
+	
+	
+	$query = new WP_Query($args);
+
+	$Imagens = null;
+	$Conteudo = null;
+	$objImagem = null;
+	$count = 0;
+
+	$idCategoriaPrincipal = retornaIdCategoriaPrincipalPost($post->ID);							
+	$aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipal);                
+	while ( $query->have_posts() ) {
+		$query->the_post();
 		/*=======================================================================================================	
 		'* Exibe Conteúdo agenda
 		'========================================================================================================*/							
 		include(get_template_directory() . "-child/includes/conteudo-noticias.php");
-
 		$count ++;
-               
 	}	
 
 	//echo $Conteudo;
