@@ -33,6 +33,9 @@ define('DB_CHARSET', 'utf8mb4');
 /** O tipo de collate do banco de dados. Não altere isso se tiver dúvidas. */
 define('DB_COLLATE', '');
 
+/** Caminho onde será realizado o backup do banco de dados */
+define('DB_PATH_BACKUP', '');
+
 /**#@+
  * Chaves únicas de autenticação e salts.
  *
@@ -65,6 +68,9 @@ define('FS_METHOD','direct');
 $table_prefix  = 'wp_';
 
 
+define ('WPLANG', 'pt_BR'); //> Define o idioma linguagem
+
+
 /**
  * Para desenvolvedores: Modo debugging WordPress.
  *
@@ -73,6 +79,19 @@ $table_prefix  = 'wp_';
  * em seus ambientes de desenvolvimento.
  */
 define('WP_DEBUG', true);
+
+
+define( 'WP_TEMP_DIR' , ABSPATH . 'wp-content/' );
+define('WP_SITEURL', 'http://localhost/fundacaoecarta/'); //> Defini a url do site
+define('WP_HOME', 'http://localhost/fundacaoecarta/'); //Define a home do site
+define('DISABLE_WP_CRON', true); //> Desativar wp-cron de execução de tarefas agendadas.
+define('WP_POST_REVISIONS', 3); //> Limita o número de revisões armazenadas
+define('EMPTY_TRASH_DAYS', 7); //> Limpa a lixeira na quantidade de dias informado.
+
+# Desativar completamente todos os tipos de atualizações automáticas do Wordpress
+define('AUTOMATIC_UPDATER_DISABLED', true);
+define('WP_AUTO_UPDATE_CORE', FALSE );
+
 
 /* Isto é tudo, pode parar de editar! :) */
 

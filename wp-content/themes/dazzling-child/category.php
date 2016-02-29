@@ -6,7 +6,6 @@
  */
 padraoRedirecionamentoSite(get_query_var('tag_id'), $idCategoriaPrincipalAcessada);
 
-
 //> INCLUI CABEÇALHO 
 get_header();
 ?>	
