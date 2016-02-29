@@ -12,12 +12,13 @@
     $Imagens = null;
     $Conteudo = null;
     $objImagem = null;
+	$totalPostExibir = 3;
     if ( $query->have_posts()){
         $Conteudo .= '<div class="chamadas-principais area3">';   
             $Conteudo .= '<div class="row">';
                 $Conteudo .= '<div class="content-area col-sm-12 col-md-12">';
-                        $Conteudo .= '<hr class="linha-h4"/>';
-                        $Conteudo .= '<h4 class="titulo-linha-h4">destaques</h4>';
+					$Conteudo .= '<hr class="linha-h4"/>';
+					$Conteudo .= '<h4 class="titulo-linha-h4">destaques</h4>';
                 $Conteudo .= '</div>';
             $Conteudo .= '</div>';
             $Conteudo .= '<div class="slide-carousel-horizontal-capa carousel slide" data-ride="carousel" data-type="multi" id="area-slide-carousel-destaques-capa" data-interval="0">';
@@ -50,16 +51,22 @@
                     $Conteudo .= '</div>';					
                     $i ++;	
                 } //> while ( $query->have_posts() ) {
-                /* Mantem o espaço*/
-                /*
-                for ($i = $query->post_count; $i < $args['showposts']; $i ++){ 
-                        $Conteudo .= '<div class="col-sm-12 col-md-4">';
-                        $Conteudo .= '</div>';
-                }
-                */
+                /* Mantem o espaço para o total de elementos */						
+				if ($totalPostExibir > $i){		
+					$iCount = 0;					
+					while ($iCount < ($totalPostExibir - $i)){						
+						$Conteudo .= '<div class="item">';
+						$Conteudo .= '<div class="col-sm-12 col-md-4"></div>';
+						$Conteudo .= '</div>';
+						$iCount++;
+					}
+				}				
                 $Conteudo .= ' </div>';	
-                $Conteudo .= ' <a class="left carousel-control" href="#area-slide-carousel-destaques-capa" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>';
-                $Conteudo .= '<a class="right carousel-control" href="#area-slide-carousel-destaques-capa" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>';
+				//> Exibe os botões de navegação quanto o total de itens for superior ao limite definido <$totalPostExibir>
+                //if ($i > $totalPostExibir){
+					$Conteudo .= ' <a class="left carousel-control" href="#area-slide-carousel-destaques-capa" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>';
+					$Conteudo .= '<a class="right carousel-control" href="#area-slide-carousel-destaques-capa" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>';
+				//}
             $Conteudo .= ' </div>';
         $Conteudo .= ' </div>';
     } //> if ( $query->have_posts()){

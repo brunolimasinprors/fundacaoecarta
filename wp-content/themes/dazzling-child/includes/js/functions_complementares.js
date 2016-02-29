@@ -1,33 +1,62 @@
 jQuery(document).ready(function ($) {
     /*
-     Carrosel chamadas principais site
-     */
+		ÁREA 1 / CHAMADAS PRINCIPAIS (Carrossel)
+	*/
     $('#chamadas-principais').carousel({
-        interval: 9000
+        interval: 9000 //> Tempo de transição entre as imagens em milisegundos <1000 milisegundos = 1 segundo>
     });
 
-
-
+    /*
+		ÁREA 2 / AGENDA
+	*/
+    $('#area-slide-carousel-agenda-capa .item').each(function () {
+        var next = $(this).next();
+        var limite;
+        //> Total de Itens
+        //alert($("#carousel-example-vertical .item").length);		
+        //alert(next.length); //> quantidade de itens
+        //alert($('div.active').index());
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+        if ($("#area-slide-carousel-agenda-capa .item").length <= 2) {
+            limite = 0;
+        } else if ($("#area-slide-carousel-agenda-capa .item").length == 3) {
+            limite = 1;
+        } else {
+            limite = 2;
+        }
+        for (var i = 0; i < limite; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });		
+	
+	/*
+		ÁREA 3 / | DESTAQUES 
+	*/
     $('#area-slide-carousel-destaques-capa[data-type="multi"] .item').each(function () {
-
         var next = $(this).next();
         if (!next.length) {
             next = $(this).siblings(':first');
         }
         next.children(':first-child').clone().appendTo($(this));
-
         for (var i = 0; i < 1; i++) {
             next = next.next();
             if (!next.length) {
                 next = $(this).siblings(':first');
             }
-
             next.children(':first-child').clone().appendTo($(this));
         }
     });
 
-
-
+	/*
+		ÁREA 4 / PROJETOS
+	*/
     $('#area-slide-carousel-projetos-capa[data-type="multi"] .item').each(function () {
         var next = $(this).next();
         if (!next.length) {
@@ -39,123 +68,34 @@ jQuery(document).ready(function ($) {
             if (!next.length) {
                 next = $(this).siblings(':first');
             }
-
             next.children(':first-child').clone().appendTo($(this));
         }
     });
 
-    totalItens = 4;
-    $('#area-slide-carousel-agenda-capa .item').each(function () {
 
-        //if ($("#carousel-example-vertical .item").length > 4){
-
-        /*
-         var next = $(this).next();			
-         
-         
-         
-         if (!next.length) {
-         next = $(this).siblings(':first');
-         }
-         
-         next.children(':first-child').clone().appendTo($(this));	  
-         for (var i=0;i<2;i++) {
-         next=next.next();
-         if (!next.length) {
-         next = $(this).siblings(':first');
-         }
-         
-         next.children(':first-child').clone().appendTo($(this));
-         }
-         */
-
-        //}
-
-
-
-        var next = $(this).next();
-        var limite;
-
-
-        //> Total de Itens
-        //alert($("#carousel-example-vertical .item").length);		
-
-
-        //alert(next.length); //> quantidade de itens
-
-        //alert($('div.active').index());
-
-
-
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-
-
-
-        if ($("#area-slide-carousel-agenda-capa .item").length <= 2) {
-            limite = 0;
-        } else if ($("#area-slide-carousel-agenda-capa .item").length == 3) {
-            limite = 1;
-        } else {
-            limite = 2;
-        }
-        //limite
-
-
-        for (var i = 0; i < limite; i++) {
-            next = next.next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-
-            next.children(':first-child').clone().appendTo($(this));
-        }
-
-
-        /*
-         if (next.next().length >0) {
-         next.next().children(':first-child').clone().appendTo($(this));
-         }else {
-         $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-         }
-         */
-
-
-
-    });
 
     $(".todas").click(function () {
-
         $(".caixaCheckbox").each(function () {
-
             if ($(".todas").prop("checked")) {
                 $(this).prop("checked", true);
             } else {
                 $(this).prop("checked", false);
             }
-
         });
     });
 
     $("#btCadastrar").click(function () {
-
         var teste = false;
-
         $(".campo-preenchimento-rodape").text("");
-
         //Para evitar conflito no layout da tag de retorno
         $('.alerta-rodape').hide();
         jQuery('.alerta-rodape').removeClass('alert-danger');
         jQuery('.alerta-rodape').removeClass('alert-success');
-
         $('.caixaCheckbox').each(function () {
             if ($(this).prop("checked") == true) {
                 teste = true;
                 return;
             }
-
         });
 
         if (!teste) {
@@ -170,18 +110,14 @@ jQuery(document).ready(function ($) {
             jQuery('.alerta-rodape').addClass('alert-danger');
             $('.alerta-rodape').show();
             return;
-
         }
 
         if ($("#txtEmail").val() == "") {
-
             $(".campo-preenchimento-rodape").html("O campo <strong>e-mail</strong> é de preenchimento obrigatório. ");
             jQuery('.alerta-rodape').addClass('alert-danger');
             $('.alerta-rodape').show();
-
         } else {
             var email = $("#txtEmail").val();
-
             if (!validarEmail(email)) {
                 $(".campo-preenchimento-rodape").html("O endereço de e-mail informado é <strong>inválido</strong>.");
                 jQuery('.alerta-rodape').addClass('alert-danger');
@@ -189,9 +125,7 @@ jQuery(document).ready(function ($) {
                 return;
             }
         }
-
         enviaDadosFormAjax('frmEmailsInformativo', null, 'campo-preenchimento-rodape');
-
     });
 
     $(".botao-fecha-alerta").click(function () {

@@ -36,7 +36,27 @@
             return $aryDados["title"] . $separador . $aryDadosPluginISC[0];
         }
     }
-    
+ 
+    /*
+     *  Retorna o id da página acessada
+     *  @return String - retorna o id da página acessada
+     * 
+     * @author Lucas Emerim Marques
+     * @version 27/02/2016     
+    */   
+	function retornaPaginaAcessada($pUrl){
+		$strPagina = "/page/";
+		$retorno = strstr($pUrl, $strPagina);		
+		if ($retorno){
+			$pagina = str_replace($strPagina, "", $retorno);
+			$pagina = (int) str_replace("/", "", $pagina);			
+			if (is_int($pagina)){
+				return $pagina;
+			}
+		}
+		return null;
+	}
+	
     /*
      *  Retorna o layout da categoria principal
      *  @return Array - Layout categoria principal
@@ -131,7 +151,7 @@
         //> Retorna url base do site
         $urlBaseSite = get_bloginfo('url');  //> Retorna Url Base do Site
         //> Retorna Url atual acessada
-        $urlAcessada = "http://" . retornaUrlAtual();
+        $urlAcessada = retornaUrlAtual();
         //> Retorna apenas o complemento da url base
         $complementoUrl = str_replace($urlBaseSite, "", $urlAcessada);
         //> array complemento da url
@@ -167,7 +187,7 @@
         //> Retorna url base do site
         $urlBaseSite = get_bloginfo('url');  //> Retorna Url Base do Site
         //> Retorna Url atual acessada
-        $urlAcessada = "http://" . retornaUrlAtual();
+        $urlAcessada = retornaUrlAtual();
         //> Retorna apenas o complemento da url base
         $complementoUrl = str_replace($urlBaseSite, "", $urlAcessada);
         //> array complemento da url
@@ -198,6 +218,8 @@
         }
         return $urlComplementarCategoria;
     }
+    
+    
 
     /*
      *  Retorna array de <tags> de acordo com <id> da categoria informada.
@@ -207,7 +229,7 @@
      * @version 23/02/2016     
     */    
     function retornaUrlAtual() {
-        $server = $_SERVER['SERVER_NAME'];
+        $server = "http://".$_SERVER['SERVER_NAME'];
         $endereco = $_SERVER ['REQUEST_URI'];
         if (!empty($endereco)) {
             return $server . $endereco;

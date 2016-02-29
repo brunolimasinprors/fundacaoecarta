@@ -42,7 +42,7 @@
 
 
     //> Retorna Url Atual completa
-    $urlAtual = "http://".retornaUrlAtual();
+    $urlAtual = retornaUrlAtual();
 
     $urlCategorias = get_site_url().retornaUrlComplementarCategorias();
 
@@ -146,5 +146,5 @@
            $objCategoriasFilhasProjeto[] = $objCategoria;           
        }        
     }
-
+	
 ?>
