@@ -24,7 +24,7 @@
     $objImagem = null;
 
     $count = 0;	
-    if ($query->have_post()){
+    if ($query->have_posts()){
         while ($query->have_posts() ) {
             $query->the_post();
             $idCategoriaPrincipal = retornaIdCategoriaPrincipalPost($post->ID);							
