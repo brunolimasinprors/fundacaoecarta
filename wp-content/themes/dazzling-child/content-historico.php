@@ -48,27 +48,21 @@ if ($query->have_posts()) {
     //removo o query auxiliar da memória
     unset($queryAux);
 
+    echo '<div class="panel-group espacamento-painel-dropdown-historico-eventos" id="historico" role="tablist" aria-multiselectable = "true">';
     foreach ($arrAnosPublicados as $anoPublicacao) {
 
         if ($anoPublicacao !== $ultimoAno) {
             ?>
-
-            <div class = "panel-group espacamento-painel-dropdown-historico-eventos " id = "accordion" role = "tablist" aria-multiselectable = "true">
-                <div class = "panel panel-default painel-historico-eventos">
-
+                <div class ="panel panel-default painel-historico-eventos">
                     <div class = "panel-heading caixa-dropdown-historico-eventos <?= $aryDadosCategoria['background-color_css']; ?>" id = "heading<?= $anoPublicacao; ?>" >
-                        <a role="button" class = "accordion-toggle <?= ($count == 0) ? "" : "collapsed"; ?>" data-toggle = "collapse" data-parent = "#" href = "#collapse<?= $anoPublicacao; ?>">
-
+                        <a role="button" class="accordion-toggle <?= ($count == 0) ? "" : "collapsed"; ?>" data-toggle = "collapse" data-parent="#historico" href="#collapse<?= $anoPublicacao; ?>">
                             <h3 class = "panel-title text-center ano-historico-eventos " >
-
                                 <?= $anoPublicacao; ?>
-
                             </h3>
                         </a>
                     </div>
                     <div id="collapse<?= $anoPublicacao; ?>" class="panel-collapse collapse <?= ($count == 0) ? "in" : ""; ?>" role="tabpanel" aria-labelledby="heading<?= $anoPublicacao; ?>">
                         <div class="panel-body espacamento-corpo-painel-historico-eventos caixa-dropdown-galeria" >
-
                             <div class="row">
                                 <?php
                                 while ($query->have_posts()) {
@@ -93,13 +87,13 @@ if ($query->have_posts()) {
                         </div>
                     </div>
                 </div>
-            </div>
-
             <?php
             $ultimoAno = $anoPublicacao;
         } //if ($anoPublicacao !== $ultimoAno) {
         $count++; //controlar o primeiro registro
     } //foreach ($arrAnosPublicados as $anoPublicacao) {
+    echo '</div>';
+    
 } //if ($query->have_posts()) {
 
 unset($query);
@@ -107,6 +101,8 @@ unset($arrAnosPublicados);
 ?>
 <!--
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                
+                
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">

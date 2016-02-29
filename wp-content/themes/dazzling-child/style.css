@@ -979,8 +979,10 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
 
 
 .ano-historico-eventos{
+    position:relative;
+    top: -6px;
     color: #FFF;
-    margin-top:-6px;	
+    	
 }
 
 
@@ -1114,7 +1116,8 @@ div.painel-historico-eventos{
 }
 .caixa-noticias{
     margin-top: 24px;
-   
+   height: 95px;
+    
 }
 .imagem-noticias{
     float:left;
@@ -1130,21 +1133,21 @@ div.painel-historico-eventos{
 }
 .caixa-descricao-noticias{
      position:relative;
-    width:60%;
+    width:64%;
     height:40px;
     overflow: hidden;
     line-height: 1;
     top:6px;
     color:#A0A1A3;
     text-align: left;
-    margin-bottom: 20px;
+   
 }
 .caixa-descricao-noticias p{
      margin:0 !important;
 }
 .icones-apoio-noticias{
     float:right;
-    
+    margin-top: -9px;
     
 }
 .data-noticia{
@@ -1163,7 +1166,10 @@ div.painel-historico-eventos{
     margin-right: 5px;
     
 }
-
+.menu-paginas-noticias{
+margin-top:9px;
+margin-left: 28%;
+}
 
 .menu-paginas-noticias li{
     display: inline-flex;
@@ -1174,11 +1180,11 @@ div.painel-historico-eventos{
     color:#444142;
     text-align: center;
     padding: 0px 7px;
-    margin-top:30px;
+    
    
     
 }
-.menu-paginas-noticias li:hover , .menu-paginas-noticias a:hover{
+.menu-paginas-noticias li:hover , .menu-paginas-noticias a:hover  {
     background:#606062;
     color:#fff !important;
     
@@ -1187,6 +1193,7 @@ div.painel-historico-eventos{
 @media  (max-width:1000px){
     .caixa-noticias {
     margin-top: 0px;
+    margin-bottom: 60px;
 }
 }
 @media  (max-width:530px){
@@ -1207,4 +1214,9 @@ div.painel-historico-eventos{
 .caixa-descricao-noticias{
     margin-bottom: 10px;
 }
+
+.menu-paginas-noticias{
+margin-top:80px;
+}
+
 }

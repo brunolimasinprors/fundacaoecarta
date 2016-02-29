@@ -319,7 +319,18 @@ jQuery(document).ready(function ($) {
 
         $("div .area-exibir-agenda").hide(tempoCarregamento);
     });
+    
+    
+    
+    
+  
 
+
+
+
+    //>Adiciona estilo a pagina ativa
+     $(".current").parents("li").css({"color": "#fff", "background": "#606062"});
+    
 });
 
 

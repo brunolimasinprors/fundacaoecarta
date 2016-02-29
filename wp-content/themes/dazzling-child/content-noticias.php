@@ -53,7 +53,7 @@ $return = paginate_links( array(
 	'total' => $query->max_num_pages
 ) );
 
-    echo str_replace( "<ul class='page-numbers'>", '<ul class="menu-paginas-noticias text-center">', $return );
+    echo str_replace( "<ul class='page-numbers'>", '<ul class="menu-paginas-noticias">', $return );
     
 ?>
 

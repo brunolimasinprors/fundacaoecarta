@@ -44,11 +44,12 @@ get_header();
                     ?>
                 </div> 					
             </div>
+            
             <div class="row">
                 <div class="content-area col-sm-12 col-md-12">	
                   
                 </div> 					
             </div>			
-        </div>
+        
         	
         <?php get_footer(); ?>
