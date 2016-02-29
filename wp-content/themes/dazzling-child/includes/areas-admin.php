@@ -31,6 +31,59 @@ function dazzling_header_menu_customizado() {
 
 } /* end header menu */
 
+/*-------------------------------------------------------------------------------------------*/
+/* ÁREA 0 | EDITAR CRITÉRIOS BUSCADORES
+/* Cria post type específico para esta área */
+/*-------------------------------------------------------------------------------------------*/
+class area0_post_type {
+	
+	function area0_post_type() {
+		add_action('init',array($this,'create_post_type'));
+	}
+	
+	function create_post_type() {
+		$labels = array(
+		    'name' => 'Critérios Buscadores - Área 0',
+		    'singular_name' => 'Área 0',
+		    'add_new' => 'Novo Critério',
+		    'all_items' => 'Todos os Critério',
+		    'add_new_item' => 'Adiciona novo Critério',
+		    'edit_item' => 'Editar Critério',
+		    'new_item' => 'New Post',
+		    'view_item' => 'Ver Critério',
+		    'search_items' => 'Procurar',
+		    'not_found' =>  'Critério não cadastrado',
+		    'not_found_in_trash' => 'Nenhum critério na lixeira',
+		    'parent_item_colon' => 'Parent Post:',
+		    'menu_name' => 'Posts'
+		);
+		$args = array(
+			'labels' => $labels,
+			'description' => "Cadastrar os critérios para indexação nos buscadores - ÁREA 0",
+			'public' => true,
+			'exclude_from_search' => true,
+			'publicly_queryable' => true,
+			'show_ui' => true, 
+			'show_in_nav_menus' => true, 
+			'show_in_menu' => false,
+			'show_in_admin_bar' => false,
+			'menu_position' => 5,
+			'menu_icon' => 'null',
+			'capability_type' => 'post',
+			'hierarchical' => true,
+			'supports' => array(),
+			'taxonomies' => array('category'),
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'area0'),
+			'query_var' => true,
+			'can_export' => true
+		); 
+		register_post_type('area0_post_type',$args);
+	}
+}
+
+$area0_post_type = new area0_post_type();
+
 
 /*-------------------------------------------------------------------------------------------*/
 /* ÁREA 1 | EDITAR GALERIA DESTAQUES

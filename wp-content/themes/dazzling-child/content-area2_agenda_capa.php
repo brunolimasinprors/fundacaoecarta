@@ -28,7 +28,7 @@
                 $Conteudo .= '<hr class="linha-h4"/>';
                 $Conteudo .= '<h4 class="titulo-linha-h4">agenda</h4>';
 
-                if ($query->have_post()){
+                if ($query->have_posts()){
                     $Conteudo .= '<div class="setas-agenda"><a href="#area-slide-carousel-agenda-capa" data-slide="next"><i class="glyphicon glyphicon-menu-up"></i></a></div>';
                         $Conteudo .= '<div class="area-slide-carousel-agenda-capa carousel slide" data-ride="carousel" data-type="multi" id="area-slide-carousel-agenda-capa" data-interval="0">';
                             $Conteudo .= '<div class="carousel-inner">';
