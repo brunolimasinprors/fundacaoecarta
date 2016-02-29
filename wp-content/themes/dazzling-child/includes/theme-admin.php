@@ -29,13 +29,13 @@ function pagina_edicao_capa_callback() {
             width: 1024px;
             height: 1373px;
         }
-
+        
         #logo-pagina-principal {
             width: 295px;
             height: 115px;
             left: 0px;
             top: 0px;
-            background-color:#5A0F0F;;
+            background-color:#5A0F0F;
             opacity: 0;
             color: #FFF;
             font-size: 32px;
@@ -43,20 +43,34 @@ function pagina_edicao_capa_callback() {
             vertical-align: middle;            
             line-height: 100px;				
         }
-        
+
+        #seo {
+            width: 729px;
+            height: 35px;
+            left: 295px;
+            top: 0px;
+            background-color:#B3B300;
+            opacity: 0;
+            color: #FFF;
+            font-size: 20px;
+            text-align: -webkit-center;
+            vertical-align: middle;            
+            line-height: 35px;
+            text-indent: 96px;
+        }        
         
         #menu-topo-principal {
             width: 729px;
-            height: 115px;
+            height: 79px;
             left: 295px;
-            top: 0px;
+            top: 35px;
             background-color:#0099FF;
             opacity: 0;
             color: #FFF;
             font-size: 32px;
             text-align: -webkit-center;
             vertical-align: middle;
-            line-height: 100px;				
+            line-height: 80px;				
         }
 
 
@@ -163,7 +177,7 @@ function pagina_edicao_capa_callback() {
         }	
         
 
-        #logo-pagina-principal:hover, #menu-topo-principal:hover, #menu-topo-projetos:hover, #area1:hover, #area2:hover, #area3:hover, #area4:hover, #area5:hover, #area6:hover{
+        #logo-pagina-principal:hover, #seo:hover, #menu-topo-principal:hover, #menu-topo-projetos:hover, #area1:hover, #area2:hover, #area3:hover, #area4:hover, #area5:hover, #area6:hover{
             opacity: .75;
         }
 
@@ -185,6 +199,7 @@ function pagina_edicao_capa_callback() {
     echo '<div class="wrap" style="height:1495px;"><div id="icon-tools" class="icon32"></div>';
     echo '<div id="capa-container">';
         echo '<div id="logo-pagina-principal" url="themes.php?page=custom-header">EDITAR LOGO</div>';
+        echo '<div id="seo" url="edit.php?post_type=area0_post_type">EDITAR CRITÉRIOS BUSCADORES</div>';    
         echo '<div id="menu-topo-principal" url="nav-menus.php">EDITAR MENU PRINCIPAL</div>';    
         echo '<div id="menu-topo-projetos" url="edit-tags.php?taxonomy=category" >EDITAR MENU PROJETOS</div>';
         echo '<div id="area1" url="edit.php?post_type=area1_post_type" >EDITAR GALERIA DESTAQUES</div>';
