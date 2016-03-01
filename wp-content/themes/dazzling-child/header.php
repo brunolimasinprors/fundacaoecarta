@@ -16,13 +16,7 @@ include(get_stylesheet_directory() . "/includes/complementar.php");
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <?= (!empty($metaTitulo) ? $metaTitulo : ""); ?>
-        <?= (!empty($metaUrl) ? $metaUrl : ""); ?>
-        <?= (!empty($metaImagem) ? $metaImagem : ""); ?>
-        <?= (!empty($metaDescription) ? $metaDescription : ""); ?>
-        <?= (!empty($metaKeywords) ? $metaKeywords : ""); ?>
-
-        <style>		
+        <style>
 <?php cssProjetos($objCategoriasFilhasProjeto); ?>
         </style>
     </head>
