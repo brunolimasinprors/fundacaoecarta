@@ -48,6 +48,12 @@ $arySlugAreasConteudo[] = "noticias";
 $arySlugAreasConteudo[] = "artigos"; 
 $arySlugAreasConteudo[] = "historico"; 
 
+/* -----------------------------------------------------------------------------------------------------	
+'* Total de posts por página
+'------------------------------------------------------------------------------------------------------- */
+define('TOTAL_POSTS_POR_PAGINA', 2);
+
+
 
 define('SLUG_AREAS_CONTEUDO', serialize($arySlugAreasConteudo));
 

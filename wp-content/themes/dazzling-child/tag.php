@@ -33,7 +33,8 @@ get_header();
                 </div> 					
             
             <div class="row">
-                <div class="content-area col-sm-6 col-md-6">	
+                <div class="content-area col-sm-6 col-md-6">
+<!--                   // Exibe o icone de carregamento-->
                     <div class="area-exibir-agenda opacity-agenda" style="display:none">
                         
                     </div>
@@ -46,10 +47,11 @@ get_header();
                     '* Exibe os filtros para eventos da <<AGENDA>>
                     '=================================================================================================================*/					
                     get_template_part('content-agenda', get_post_format());		
-                    ?>       
+                    ?> 
+
                 </div> 					
             </div>			
         </div>
-        </div>
-    </main><!-- #main -->
+       
+   
 <?php get_footer(); ?>

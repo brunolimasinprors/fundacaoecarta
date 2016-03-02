@@ -22,7 +22,7 @@
     $Imagens = null;
     $Conteudo = null;
     $objImagem = null;
-
+    $mensagemNenhumEvento = "Nenhum evento cadastrado.";
     $count = 0;	
     if ($query->have_posts()){
         while ($query->have_posts() ) {
@@ -35,9 +35,13 @@
             include(get_template_directory() . "-child/includes/conteudo-agenda.php");
             $count ++;
         }
-    }else{        
-        //$Conteudo = "Nenhum evento cadastrado.xxx";
+    }else{
+         $Conteudo .= '<span class="mensagem-agenda">'.$mensagemNenhumEvento.'</span>';
+        
     }
+    
+    $Conteudo .= '<input type="hidden" id="mensagem-agenda-nenhum-evento" value="'.$mensagemNenhumEvento.'">';
+    
     echo $Conteudo;    
     //> Restaura os dados originais do post
     wp_reset_postdata();
