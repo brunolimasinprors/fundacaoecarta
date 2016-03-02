@@ -2,6 +2,8 @@
     /*=================================================================================================================	
     '* Retorna os posts de <agenda> dos eventos já realizados, com da <data fim> inferior a <data atual> do servidor.
     '=================================================================================================================*/						
+
+    $totalPostsScroll = 4; //> Total de posts para exibição do scroll
     $args = array(
         'post_type' => 'area2_post_type', //> Tipo de post <area2_post_type>
         'post_status'=> 'publish', //> Exibir post com a situação publicado		
@@ -29,7 +31,12 @@
                 $Conteudo .= '<h4 class="titulo-linha-h4">agenda</h4>';
 
                 if ($query->have_posts()){
-                    $Conteudo .= '<div class="setas-agenda"><a href="#area-slide-carousel-agenda-capa" data-slide="next"><i class="glyphicon glyphicon-menu-up"></i></a></div>';
+                    $Conteudo .= '<div class="setas-agenda">';
+                        if ($query->post_count > $totalPostsScroll){
+                            $Conteudo .= ' <a href="#area-slide-carousel-agenda-capa" data-slide="next"><i class="glyphicon glyphicon-menu-up"></i></a>';
+                        }   
+                    $Conteudo .= '</div>';
+                    
                         $Conteudo .= '<div class="area-slide-carousel-agenda-capa carousel slide" data-ride="carousel" data-type="multi" id="area-slide-carousel-agenda-capa" data-interval="0">';
                             $Conteudo .= '<div class="carousel-inner">';
                             $count = 0;
@@ -54,12 +61,17 @@
                             }	
                             $Conteudo .= '</div>';
                         $Conteudo .= '</div>';	
-                    $Conteudo .= '<div class="setas-agenda"><a href="#area-slide-carousel-agenda-capa" data-slide="prev"><i class="glyphicon glyphicon-menu-down"></i></a></div>';					
+                    $Conteudo .= '<div class="setas-agenda">';
+                        if ($query->post_count > $totalPostsScroll){
+                            $Conteudo .= '<a href="#area-slide-carousel-agenda-capa" data-slide="prev"><i class="glyphicon glyphicon-menu-down"></i></a>';
+                        }   
+                    $Conteudo . '</div>';					
                 }else{        
                     $Conteudo .= "Nenhum evento cadastrado.";
                 }
             $Conteudo .= '</div>';
         $Conteudo .= '</div>';	
+    $Conteudo .= '</div>';			
     $Conteudo .= '</div>';			
 		
     echo $Conteudo;

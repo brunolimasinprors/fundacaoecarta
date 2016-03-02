@@ -1,5 +1,6 @@
 <?php
     include(get_template_directory() . "-child/includes/complementar.php");
+    
     /*=================================================================================================================	
     '* Retorna a relação de posts pertencentes a <<categoria principal acessada>>
     '=================================================================================================================*/						
