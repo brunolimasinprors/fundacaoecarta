@@ -7,7 +7,7 @@
 ?>
 
 <div class="row">
-    <div class="content-area col-sm-6 col-md-10 area-conteudo-padrao">
+    <div class="area-conteudo-padrao">
 
         <?php the_content(); ?>
 
