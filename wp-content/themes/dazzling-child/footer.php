@@ -107,7 +107,7 @@ include(get_template_directory() . "-child/includes/complementar.php");
                     <div class="content-area col-lg-12 col-xs-12 col-sm-12">    
                         <ul class="list-inline itens-projeto-form-rodape fonte-areas-rodape">       
                             <li class="fonte-titulo-rodape">
-                                <input class="todas" type="checkbox" value="todas"><font color="#DFE0E1 ">todas as áreas</font>
+                                <input class="todos-projetos-rodape" type="checkbox" value="todas"><font color="#DFE0E1 ">todas as áreas</font>
                             </li>	
                             <?php
                             if ($objCategoriasFilhasProjeto) {

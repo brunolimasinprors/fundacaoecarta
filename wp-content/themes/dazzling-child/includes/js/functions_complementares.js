@@ -72,11 +72,14 @@ jQuery(document).ready(function ($) {
         }
     });
 
+//
+//    Formulario rodapé
+//
 
-
-    $(".todas").click(function () {
+    //> Seleciona todos os projetos 
+    $(".todos-projetos-rodape").click(function () {
         $(".caixaCheckbox").each(function () {
-            if ($(".todas").prop("checked")) {
+            if ($(".todos-projetos-rodape").prop("checked")) {
                 $(this).prop("checked", true);
             } else {
                 $(this).prop("checked", false);
@@ -85,7 +88,7 @@ jQuery(document).ready(function ($) {
     });
 
     $("#btCadastrar").click(function () {
-        var teste = false;
+        var variavelControle = false;
         $(".campo-preenchimento-rodape").text("");
         //Para evitar conflito no layout da tag de retorno
         $('.alerta-rodape').hide();
@@ -93,12 +96,12 @@ jQuery(document).ready(function ($) {
         jQuery('.alerta-rodape').removeClass('alert-success');
         $('.caixaCheckbox').each(function () {
             if ($(this).prop("checked") == true) {
-                teste = true;
+                variavelControle = true;
                 return;
             }
         });
 
-        if (!teste) {
+        if (!variavelControle) {
             $(".campo-preenchimento-rodape").html("Selecione sua(s) <strong>área(s) de interesse</strong>. ");
             jQuery('.alerta-rodape').addClass('alert-danger');
             $('.alerta-rodape').show();
@@ -133,6 +136,7 @@ jQuery(document).ready(function ($) {
 
     });
 
+    //> Função que valida formato do Email
     function validarEmail(emailAddress) {
         var verifica = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
         return verifica.test(emailAddress);
@@ -142,9 +146,11 @@ jQuery(document).ready(function ($) {
         interval: false
     });
 
+//
+//      Galeria de imagens | Leonardo
+//
 
-
-
+    //> Determine o numero de imagens a serem exibidas embaixo da galeria de imagens
     $('#menuCarousel[data-type="multi"] .menu-galeria-imagem').each(function () {
 
         var next = $(this).next();
@@ -165,71 +171,82 @@ jQuery(document).ready(function ($) {
 
     });
 
+//
+//          Fim galeria de imagens
+//
+
+// ******************************************
+
+//                                              
+//     Agenda controle de filtros  | Leonardo  
+//                                               
+
     //> Tempo de carregamento dos elementos da agenda
     var tempoCarregamento = 500;
+    
+    //> Mensagem a ser exibida caso não encontre nenhum evento 
     var msgNenhumEvento = $("#mensagem-agenda-nenhum-evento").val();
     
+    //> Evento disparado ao clicar nos projetos laterais da agenda 
     $(".fonte-menu-lateral-agenda").click(function () {
         var nomeProjeto = $(this).attr("projetos");
         var cont = 0;
            
         //> Limpa o conteúdo da div de notificação
         $("div .area-exibir-agenda1").text("");
-           $("div .mensagem-agenda").text("");
+        $("div .mensagem-agenda").text("");
+        
        //> Oculta todos os eventos
-        $("div .box-item-agenda").css("display", "none");
+        $("div .box-item-agenda").hide();
+        
         //>Adiciona a imagem do icone de carregar
         $("div .area-exibir-agenda").html("<img class='icone-carregar-agenda' src='http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/carrega_agenda.gif' >")
+        
         //> Mostra o icone
         $("div .area-exibir-agenda").show();
-        //> Mostra os eventos
+        
+        //> Mostra os eventos , baseado com o projeto selecionado
         $('div .box-item-agenda[projeto*="' + nomeProjeto + '"]').show(tempoCarregamento);
 
         //> Mostra todos os projetos
         if (!nomeProjeto) {
             $("div .box-item-agenda").show(tempoCarregamento);
             $("div .area-exibir-agenda").hide(tempoCarregamento);
+            //> Caso não tenha nenhum evento , exibe a mensagem
            if ($('div .box-item-agenda').size() == 0) {
                $(".area-exibir-agenda1").html(msgNenhumEvento).show();
            }
             return;
         }
         
-        //> Verifica se existe algum projeto 
+        //> Verifica se existe pelo menos 1 projeto 
         $('div .box-item-agenda').each(function () {
             if ($(this).attr("projeto") == nomeProjeto) {
                 cont++;
-               
-
-            }
-
+              }
         });
        
         //> Tira da tela o icone de carregar e encerra
         if (cont >= 1) {
             $("div .area-exibir-agenda").hide(tempoCarregamento);
            
-            return;
         } else {
         //> Mostra a msg de erro
             $(".area-exibir-agenda1").text(msgNenhumEvento);
             $("div .area-exibir-agenda").hide(tempoCarregamento);
-             $(".area-exibir-agenda1").show();
+            $(".area-exibir-agenda1").show();
        
         }
 
 
     });
 
-    $(".botao-filtro-agenda").click(function () {
-       buscaEventosAgenda();
-    });
-    
-    
+//
+//      Filtra por cidade ou por mês 
+//
 
-    function buscaEventosAgenda(){
-        
-         var cidades = $(".cidades-agenda").val();
+    $(".botao-filtro-agenda").click(function () {
+        var cidades = $(".cidades-agenda").val();
         var meses = $(".mes-agenda").val();
 
         //> Limpa o conteúdo da div de notificação
@@ -272,14 +289,30 @@ jQuery(document).ready(function ($) {
         }
 
         $("div .area-exibir-agenda").hide(tempoCarregamento);        
-        
-        
-        
-    }
     
+    
+     });
+//                                                                      
+//      Fim do controle de filtros da Agenda    
+//                                              
+                                
+//  *******************************************                              
+                               
+//                                   
+//        Paginação das noticias   
+//                                             
     //>Adiciona estilo a pagina ativa
      $(".current").parents("li").css({"color": "#fff", "background": "#606062"});
     
+    
+    
+    
+//                                                          
+//      Fim Paginação Noticias    
+//                                
+
+//  ******************************************* 
+
 });
 
 

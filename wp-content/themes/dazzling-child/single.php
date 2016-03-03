@@ -22,7 +22,7 @@ get_header(); ?>
                 <div class="content-area col-sm-12 col-md-9">
                     <?php while ( have_posts() ) : the_post(); ?>
                         <?php get_template_part( 'content', 'single' ); ?>
-                        <?php dazzling_post_nav(); ?>
+                       
                     <?php endwhile; // end of the loop. ?>
                 </div> 					
             </div>

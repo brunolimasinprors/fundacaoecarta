@@ -35,7 +35,8 @@ get_header();
                             get_template_part('content-historico', get_post_format());
                         } elseif ($tag->slug == "noticias") {
                             get_template_part('content-noticias', get_post_format());
-                        } else {
+                        
+                        }else {
                             get_template_part('content-padrao', get_post_format());
                         }
                     }

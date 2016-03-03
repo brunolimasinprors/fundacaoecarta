@@ -10,12 +10,10 @@
 
 @import url("../dazzling/style.css");
 
-
 @font-face {
     font-family: "century-gothic";
     src: url("./includes/century-gothic.ttf") format("truetype");
 }  
-
 
 body {
     color: #6B6B6B;
@@ -24,7 +22,6 @@ body {
     font-size: 14px;
     font-family: "century-gothic";  
 }
-
 
 .hfeed {	
     background-color: #FFF;	
@@ -55,7 +52,6 @@ body {
         padding-left: 15px !important;	
     }
 }
-
 
 
 /* Cabeçalho */
@@ -90,13 +86,9 @@ ul.itens-menu li {
     padding-left:45px;	
 }
 
-
 .nav.navbar-nav>li>a {
     padding-right:45px;	
 }
-
-
-
 
 ul.itens-menu li:after {
     position: absolute;
@@ -106,9 +98,6 @@ ul.itens-menu li:after {
     left: 50%;
     margin-left: -35%;
 }
-
-
-
 
 @media (max-width: 767px) {
     /*>> Celular */
@@ -123,7 +112,6 @@ ul.itens-menu li:after {
         display:none;
         padding:0px;	  
     }
-
 
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
@@ -159,15 +147,9 @@ ul.itens-menu li:after {
         content: "";		
     }	
 
-
-
-
-
     ul.itens-menu li {
         font-size: 17px;
     }
-
-
 
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
@@ -194,8 +176,6 @@ ul.itens-menu li:after {
     padding: 4px 20px !important;	
 }
 
-
-
 .nav.itens-projeto > li > a:hover,
 .nav.itens-projeto > li > a:visited,
 .nav.itens-projeto > li > a:active,
@@ -204,9 +184,6 @@ ul.itens-menu li:after {
 {
     font-weight: bold !important;		
 }
-
-
-
 
 .menu-projeto{
     margin-top:15px;
@@ -219,11 +196,11 @@ ul.itens-menu li:after {
 /*
 Corpo pagina
 */
+
 #content {
     margin-top: 3px;
     margin-bottom: 40px;
 }
-
 
 #chamadas-principais .item img {
     width: 100%; /*img width*/
@@ -237,6 +214,7 @@ Corpo pagina
     -o-transition: opacity 1s;
     transition: opacity 1s;
 }
+
 .carousel-caption{
     position: absolute;
     left: 0px;
@@ -277,7 +255,6 @@ slider-credito{
     line-height: 0;
 }
 
-
 .carousel-indicators{
     text-align: right;
     bottom: -8px;
@@ -292,7 +269,6 @@ slider-credito{
     margin: 2px;
 }
 
-
 .carousel-indicators .active{
     background-color: #D2373C;	
     border-color:#D2373C;
@@ -300,8 +276,6 @@ slider-credito{
     height: 4px;			
     margin: 2px;
 }
-
-
 
 /* fade de troca de slider dos destaques principais*/
 .carousel-fade .carousel-inner .item {
@@ -311,23 +285,26 @@ slider-credito{
     -o-transition-property: opacity;
     transition-property: opacity;
 }
+
 .carousel-fade .carousel-inner .active {
     opacity: 1 !important;
 }
+
 .carousel-fade .carousel-inner .active.left,
 .carousel-fade .carousel-inner .active.right {
     left: 0;
     opacity: 0;
     z-index: 1;
 }
+
 .carousel-fade .carousel-inner .next.left,
 .carousel-fade .carousel-inner .prev.right {
     opacity: 1;
 }
+
 .carousel-fade .carousel-control {
     z-index: 2;
 }
-
 
 hr.linha-h4{
     border-top: 1px solid #DADBDC;	
@@ -362,7 +339,6 @@ hr.linha-h4{
     margin-top: 6px;
 }
 
-
 .row.area3-destaquesAux{
     margin-top: 6px;
     /*	
@@ -371,16 +347,11 @@ hr.linha-h4{
     */
 }
 
-
-
-
 .carousel-inner .onebyone-carosel { margin: auto; width: 90%; }
 .onebyone-carosel .active.left { left: -4.33%; }
 .onebyone-carosel .active.right { left: 4.33%; }
 .onebyone-carosel .next { left: 4.33%; }
 .onebyone-carosel .prev { left: -4.33%; }
-
-
 
 .thumbnail{
     border: none;
@@ -399,10 +370,6 @@ hr.linha-h4{
     height: 193px !important;
 }
 
-
-
-
-
 /* Projetos | Area 4 */
 .chamadas-principais.area4{
     margin-top: 0;
@@ -415,9 +382,6 @@ hr.linha-h4{
     height: 63px !important;
 }
 
-
-
-
 .glyphicon.area3navegacao{
     font-size: 30px;
     display: block;
@@ -426,10 +390,11 @@ hr.linha-h4{
     color: #C4C6C7;
 }
 
+/*
 
-
-
-/* Rodapé */
+    Rodapé | Leonardo
+    
+*/
 #footer-area{
     margin-top:16px;
     padding-left: 15px;
@@ -452,17 +417,8 @@ hr.linha-h4{
     top:0px !important;
 }
 
-
 .list-inline.itens-projeto-form-rodape{    
     font-size: 13px;		
-}
-
-.apoio-rodape{
-    margin-left:55px;
-    padding-left:0px;
-    padding-right:0px;
-    width:100px;
-
 }
 
 .list-inline.itens-projeto-form-rodape li{    
@@ -494,9 +450,6 @@ input[type=checkbox].caixaCheckbox{
     margin-right: 5px;
 }
 
-
-
-
 #footer-area ul li{
     border: none;
 }
@@ -505,7 +458,6 @@ input[type=checkbox].caixaCheckbox{
     color: #D2373C;
 }
 
-
 .list-inline.itens-siga-rodape li{    	
     padding-right: 0 !important;	
 }
@@ -513,10 +465,6 @@ input[type=checkbox].caixaCheckbox{
 .titulo-item-rodape{
     font-weight: bold;
 }
-
-
-
-
 
 .rodape.area5{
     background-color: #606062 !important;
@@ -552,8 +500,6 @@ input[type=checkbox].caixaCheckbox{
     content:"\e013";
     color:#434343;
     padding:0px 3px 3px 0px !important;
-
-
 }
 
 .alerta-rodape{
@@ -561,24 +507,28 @@ input[type=checkbox].caixaCheckbox{
     height:26px ;
     font-size:12px;
     margin-top:5px;
-
 }
 
 .campo-preenchimento-rodape{
     margin-top:-10px;	
-
 }
 
 .botao-fecha-alerta{
     margin-top:-10px; 
-
 }
 
+/*
 
+    Fim rodapé
 
+*/
+
+/*******************************************/
 
 /*
+
 carrosel destaques
+
 */
 
 .slide-carousel-horizontal-capa .carousel-control{ 
@@ -628,6 +578,13 @@ carrosel destaques
     .slide-carousel-horizontal-capa .carousel-inner .prev		 { left: -25%; }	
 }
 
+/*
+
+    Fim destaques
+
+*/
+
+/*******************************************/
 
 /* CAPA | Agenda */
 
@@ -726,9 +683,13 @@ div.setas-agenda{
     padding-right: 0 !important;
 }
 
+/*
 
+    Fim agenda capa
 
+*/
 
+/*******************************************/
 
 /* AREA 2 | Projetos */
 #logo-area-conteudo{
@@ -757,15 +718,13 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     border-color: transparent;
 }
 
+/*
 
+    Fim area 2 / projetos
 
+*/
 
-
-
-
-
-
-
+/*******************************************/
 
 /* = Botão Busca
 ----------------------------------------------- */
@@ -827,8 +786,19 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     display:block;
 }
 
+/*
 
-/* Carousel galeria */
+    Fim botão busca
+
+*/
+
+/*******************************************/
+
+/*
+
+    Galeria de fotos | Leonardo
+
+*/
 
 .menu-galeria-imagem{
     text-align:left;
@@ -839,11 +809,7 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     left:0 !important;
     margin-top:10px;
     position:relative;
-
-
-
 }
-
 
 .menu-galeria-imagem .itens-menu-galeria:last-child{
     margin-right:-4px !important;			
@@ -856,9 +822,7 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     background-color:#fff !important;
     margin:0 !important;
     margin-right:20px !important;
-
 }
-
 
 .itens-menu-galeria{
     margin-right:19px ;
@@ -868,14 +832,10 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     padding-right: 0px; 
     padding-left: 0px; 
     overflow:hidden;
-
 }
-
 
 .controle-slide{
     background:none !important;	
-
-
 }
 
 .seta-controle-galeria{
@@ -885,7 +845,6 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     background-color:#C7C3C2 !important;
     opacity:0.8;
     left:2px;
-
 }
 
 .seta-esquerda{
@@ -896,12 +855,11 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
 .icone-slide-galeria{
     margin-top:40%;					 
     color:#000000;				 
-
 }
+
 .icone-slide-galeria-menu{
     margin-top:30%;
     color:#000000;
-
 }
 
 .seta-controle-galeria-menu{
@@ -912,23 +870,23 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     background:#BCBAB7 !important;
     z-index:10;
     opacity:0.8;
-
 }
+
 .seta-esquerda-menu{
     right:0.1% !important;
     margin-right:0 !important;
     margin-left:0 !important;
 }
+
 .seta-direita-menu{
     right:0.5% !important;
     margin-right:0 !important;
 }
 
 .area-carousel{
-
     margin-top:20px;
-
 }
+
 .espacamento-menu-galeria{
     margin-bottom:20px;	
 }
@@ -937,9 +895,7 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     margin:auto;
     max-height:645px ;
     max-width:965px ;
-
 }
-
 
 @media (min-width:768px) and (max-width:908px){
     .espacamento-menu-galeria .carousel-inner .active.left { left: -50%; }
@@ -952,6 +908,7 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     .espacamento-menu-galeria .active > div:first-child + div + div + div{  display:inline-flex; }
     .espacamento-menu-galeria .active > div:first-child + div + div + div + div{  display:inline-flex; margin-right:-10px !important; margin-left:2px;}
 }
+
 @media (min-width:908px) and (max-width:1200px){
     .espacamento-menu-galeria .carousel-inner .active.left { left: -50%; }
     .espacamento-menu-galeria .carousel-inner .next        { left:  50%; }
@@ -963,11 +920,21 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     .espacamento-menu-galeria .active > div:first-child + div + div + div {  display:inline-flex;}
     .espacamento-menu-galeria .active > div:first-child + div + div + div + div{  display:inline-flex; }
     .espacamento-menu-galeria .active > div:first-child + div + div + div + div + div{  display:inline-flex;  margin-right:-30px !important; margin-left:0px;}
-
 }
 
+/*
 
-/* Histórico | Leonardo */
+    Fim galeria de imagens
+
+*/
+
+/******************************************/
+
+/* 
+
+    Histórico | Leonardo 
+
+*/
 
 
 .caixa-dropdown-historico-eventos{
@@ -978,14 +945,12 @@ link-agenda:hover, .link-agenda:focus, .link-agenda:active, ink-agenda:visited
     margin-top:13px;
 }
 
-
 .ano-historico-eventos{
     position:relative;
     top: -6px;
     color: #FFF;
-    	
-}
 
+}
 
 h6.espacamento-linhas-historico-eventos,
 .caption p,
@@ -1030,7 +995,6 @@ div.painel-historico-eventos{
     color: #FFF !important;
     font-size:9px;
     top:-2px;
-
 }
 .panel-heading .accordion-toggle.collapsed h3:after{
     color: #FFF !important;
@@ -1042,24 +1006,35 @@ div.painel-historico-eventos{
 .caixa-dropdown-galeria{
     padding:0 !important;
 }
-/*                                               
-     Agenda | Leonardo   
-                           */    
+
+/*
+
+    Fim historico
+
+*/
+
+/********************************/
+
+/*  
+
+    Agenda | Leonardo   
+
+*/    
 
 .fonte-menu-lateral-agenda{
     font-size:15px !important;
-    
+
 }
 
 .menu-select-agenda{
     width: 200px;
     margin-right: 40px;
-   margin-bottom: 55px;
-   margin-top: 20px;
+    margin-bottom: 55px;
+    margin-top: 20px;
     -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
-   -moz-appearance: none; /* Remove estilo padrão do FireFox */
-   appearance: none; /* Remove estilo padrão do FireFox*/
-   background: url(http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/arrow1.png) no-repeat right;
+    -moz-appearance: none; /* Remove estilo padrão do FireFox */
+    appearance: none; /* Remove estilo padrão do FireFox*/
+    background: url(http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/arrow1.png) no-repeat right;
     padding:0;
 }
 
@@ -1067,63 +1042,74 @@ div.painel-historico-eventos{
     .menu-select-agenda{
         width: 200px;
         margin-right: 40px;
-       margin-bottom: 20px;
-       margin-top: 0px;
+        margin-bottom: 20px;
+        margin-top: 0px;
         -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
-       -moz-appearance: none; /* Remove estilo padrão do FireFox */
-       appearance: none; /* Remove estilo padrão do FireFox*/
-       background: url(http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/arrow1.png) no-repeat right;
+        -moz-appearance: none; /* Remove estilo padrão do FireFox */
+        appearance: none; /* Remove estilo padrão do FireFox*/
+        background: url(http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/arrow1.png) no-repeat right;
         padding:0;
-}
-	
+    }	
 }
 
 /* Remove estilo padrão do Internet Explorer */
- select::-ms-expand {
+select::-ms-expand {
     display: none;
 }
 
 .botao-filtro-agenda{
     width:100px;
     background: #FFF !important;
-	border: 1px solid #D7D7D9;
-	color:#999 !important;
+    border: 1px solid #D7D7D9;
+    color:#999 !important;
 }
 
 .menu-lateral-agenda{
     padding:0px;
-    
+
 }
 
 .icone-carregar-agenda{
     position: absolute;
     z-index: 100;
-  margin-left:30%;
-  
+    margin-left:30%;
+
 }
 .opacity-agenda{
-     opacity: 0.7;
-    
+    opacity: 0.7;
+
 }
 
-/* Noticias | Leonardo */
+/*
+    
+    Fim agenda
+
+*/
+
+/***************************************/
+
+/* 
+
+    Noticias | Leonardo
+
+*/
 
 .box-titulo-noticias{
-     position:relative;
+    position:relative;
     width:84%;
-    height:auto;
-    
-    
+    height:auto;   
 }
+
 .caixa-noticias{
     margin-top: 24px;
-   height: 95px;
-    
+    height: 95px;   
 }
+
 .imagem-noticias{
     float:left;
     margin-right:10px;
 }
+
 .titulo-noticias{
     margin-top: 0px;
     margin-bottom: -12px;
@@ -1132,44 +1118,44 @@ div.painel-historico-eventos{
     position: relative;
     top: -5px;
 }
+
 .caixa-descricao-noticias{
-     position:relative;
+    position:relative;
     width:64%;
     height:40px;
     overflow: hidden;
     line-height: 1;
     top:6px;
     color:#A0A1A3;
-    text-align: left;
-   
+    text-align: left;   
 }
+
 .caixa-descricao-noticias p{
-     margin:0 !important;
+    margin:0 !important;
 }
+
 .icones-apoio-noticias{
     float:right;
-    margin-top: -9px;
-    
+    margin-top: -9px;    
 }
+
 .data-noticia{
     color:#77787B;
     font-size: 12px;
-    font-weight: bold;
-    
+    font-weight: bold;   
 }
 
 .apoio-espacamento{
-    margin-bottom: 10px;
-    
+    margin-bottom: 10px; 
 }
 
 .icones-noticias{
-    margin-right: 5px;
-    
+    margin-right: 5px;  
 }
+
 .menu-paginas-noticias{
-margin-top:9px;
-margin-left: 28%;
+    margin-top:9px;
+    margin-left: 28%;
 }
 
 .menu-paginas-noticias li{
@@ -1181,43 +1167,77 @@ margin-left: 28%;
     color:#444142;
     text-align: center;
     padding: 0px 7px;
-    
-   
-    
 }
+
 .menu-paginas-noticias li:hover , .menu-paginas-noticias a:hover  {
     background:#606062;
     color:#fff !important;
-    
-    
 }
+
 @media  (max-width:1000px){
     .caixa-noticias {
-    margin-top: 0px;
-    margin-bottom: 60px;
+        margin-top: 0px;
+        margin-bottom: 60px;
+    }
 }
-}
+
 @media  (max-width:530px){
     .box-titulo-noticias {
-   width: 100%;
-   margin-bottom: 15px;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .icones-apoio-noticias{
+        margin-bottom: 10px;
+    }
+
+    .data-noticia{
+        margin-top: 15px;
+    }
+
+    .caixa-descricao-noticias{
+        margin-bottom: 10px;
+    }
+
+    .menu-paginas-noticias{
+        margin-top:80px;
+    }
 }
-.icones-apoio-noticias{
-   
-   margin-bottom: 10px;
+/*
     
-}
-.data-noticia{
-    margin-top: 15px;
+    Fim noticias
+
+*/
+
+/***************************************/
+
+
+/*
     
-    
-}
-.caixa-descricao-noticias{
-    margin-bottom: 10px;
+    Apresentação | Leonardo
+
+*/
+
+.area-conteudo-padrao{
+    position:relative;
+    font-size:12px;
+    left:82px;
+    width:601px;
+    line-height: 1.5;
 }
 
-.menu-paginas-noticias{
-margin-top:80px;
-}
+.area-conteudo-padrao strong{
+color:#000;
+font-size: 15px;
 
 }
+
+.area-conteudo-padrao p{
+}
+/*
+    
+    Fim apresentação
+
+*/
+
+/***************************************/
