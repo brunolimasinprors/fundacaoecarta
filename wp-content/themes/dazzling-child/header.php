@@ -20,6 +20,7 @@ include(get_stylesheet_directory() . "/includes/complementar.php");
 <?php cssProjetos($objCategoriasFilhasProjeto); ?>
         </style>
     </head>
+    
 
 
     <body <?php body_class(); ?>>

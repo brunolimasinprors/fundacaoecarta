@@ -17,12 +17,8 @@
           $Conteudo .= '<img class="img-responsive imagem-noticias" src="'.$objImagem["url"].'"  alt="'.$creditoImagem.'"  title="'.$creditoImagem.'" width="130"/>';
       }	
        $Conteudo .= ' </a>';
-      $Conteudo .= '<div class="box-titulo-noticias">';	
-       $Conteudo .= '<div class="icones-apoio-noticias">';
-            $Conteudo .= '<a href="#" class="icones-noticias"><img class="icones-siga-rodape" src="http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/face_icone.png" /></a>';										
-            $Conteudo .= '<a href="#" class="icones-noticias"><img class="icones-siga-rodape" src="http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/twitter_icone.png" /></a>';
-            $Conteudo .= '<a href="#" class="icones-noticias"><img class="icones-siga-rodape" src="http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/google_icone.png" /></a>';
-         $Conteudo .= '</div>';
+      $Conteudo .= '<div class="box-titulo-noticias">';
+
          $Conteudo .= ' <a href="'.get_permalink().'">';
           $Conteudo .= ' <h4 class="titulo-noticias">'.get_field('chamada_post').'</h4>';
           $Conteudo .= '<h5 class="data-noticia">'.$Dia.' de '.$Mes. ' de '.$Ano. '</h5>';
@@ -36,12 +32,9 @@
       $Conteudo .= '</a>';
        
 				
-    $Conteudo .= '</div>';
+    $Conteudo .= '</div>';    
     
-    
-
-   echo $Conteudo;      
-    
+   echo $Conteudo;   
      
      
 ?>

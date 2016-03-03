@@ -1203,6 +1203,11 @@ select::-ms-expand {
         margin-top:80px;
     }
 }
+
+div.sharedaddy a.sd-button {
+    background: none !important; 
+}
+
 /*
     
     Fim noticias

@@ -95,8 +95,7 @@ if (!empty($palavras_chaves_post)) {
   '* Retorna a relação de categorias filhas de <projeto>.
   '================================================================================================================= */
 if ($objCategoriaProjeto) {
-    $args = array(
-        'type' => 'post',
+    $args = array(        
         'orderby' => 'id',
         'order' => 'ASC',
         'hide_empty' => 0, /* Exibe todos os projetos, mesmo sem posts vinculados */
