@@ -1186,9 +1186,13 @@ select::-ms-expand {
         width: 100%;
         margin-bottom: 15px;
     }
+    .titulo-noticias {
+       top:0;
+    }
 
     .icones-apoio-noticias{
         margin-bottom: 10px;
+        float:none;
     }
 
     .data-noticia{
@@ -1200,7 +1204,7 @@ select::-ms-expand {
     }
 
     .menu-paginas-noticias{
-        margin-top:80px;
+        margin-top:120px;
     }
 }
 
@@ -1226,19 +1230,17 @@ div.sharedaddy a.sd-button {
 .area-conteudo-padrao{
     position:relative;
     font-size:12px;
-    left:82px;
-    width:601px;
     line-height: 1.5;
 }
 
-.area-conteudo-padrao strong{
-color:#000;
-font-size: 15px;
-
+@media  (min-width:1050px){
+    .area-conteudo-padrao {
+      left: 97px;
+      width:600px;
+       
+    }
 }
 
-.area-conteudo-padrao p{
-}
 /*
     
     Fim apresentação

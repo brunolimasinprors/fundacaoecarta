@@ -13,7 +13,7 @@
 
    $Conteudo .= '<div class="caixa-noticias" >';     
   $Conteudo .= ' <a href="'.get_permalink().'">';
-    if ($objImagem){										
+      if ($objImagem){										
           $Conteudo .= '<img class="img-responsive imagem-noticias" src="'.$objImagem["url"].'"  alt="'.$creditoImagem.'"  title="'.$creditoImagem.'" width="130"/>';
       }	
        $Conteudo .= ' </a>';
