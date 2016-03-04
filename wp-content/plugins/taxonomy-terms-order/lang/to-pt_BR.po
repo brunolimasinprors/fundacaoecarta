@@ -1,0 +1,198 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Category Order and Taxonomy Terms Order v1.3.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-12-13 17:30:01+0000\n"
+"Last-Translator: lucas-emerim <lucas.emerim@sinprors.org.br>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: include/interface.php:26
+#@ to
+msgid "This plugin can't work without javascript, because it's use drag and drop and AJAX."
+msgstr "Este plugin não pode funcionar sem javascript, pois usa as ações de arrastar, soltar  e AJAX."
+
+#: include/interface.php:62
+#@ to
+msgid "Taxonomies"
+msgstr "Categorias"
+
+#: include/interface.php:66
+#@ to
+msgid "Taxonomy Title"
+msgstr "Título das categorias"
+
+#: include/interface.php:66
+#@ to
+msgid "Total  Posts"
+msgstr "Total de Posts"
+
+#: include/interface.php:116
+#@ to
+msgid "Update"
+msgstr "Atualizar"
+
+#: include/interface.php:165
+#@ to
+msgid "Items Order Updates"
+msgstr "Atualizada a ordem das categorias"
+
+#: include/options.php:16
+#@ to
+msgid "Settings Saved"
+msgstr "Configurações salvas"
+
+#: include/options.php:24
+#@ to
+msgid "General Settings"
+msgstr "Configurações Gerais"
+
+#: include/options.php:57
+#@ to
+msgid "Did you find this plugin useful? Please support our work with a donation or write an article about this plugin in your blog with a link to our site"
+msgstr "Você achou este plugin útil? Por favor, apoiem o nosso trabalho com uma doação ou escrever um artigo sobre este plugin em seu blog com um link para o nosso site"
+
+#: include/options.php:58
+#@ to
+msgid "Did you know there is available a more advanced version of this plug-in?"
+msgstr "Já sabia que está disponível uma nova versão do plugin?"
+
+#: include/options.php:58
+#@ to
+msgid "Read more"
+msgstr "Leia mais"
+
+#: include/options.php:59
+#@ to
+msgid "Check our"
+msgstr "Verificação nossa"
+
+#: include/options.php:59
+#@ to
+msgid "plugin which allow to custom sort all posts, pages, custom post types"
+msgstr "Este plug-in permite a classificação personalizada de todos os posts, páginas e tipos personalizados"
+
+#: include/options.php:64
+#@ to
+msgid "General"
+msgstr "Geral"
+
+#: include/options.php:69
+#@ to
+msgid "Minimum Level to use this plugin"
+msgstr "Nível Mínimo de acesso para usar este plugin"
+
+#: include/options.php:72
+#@ tto
+msgid "Subscriber"
+msgstr ""
+
+#: include/options.php:73
+#@ tto
+msgid "Contributor"
+msgstr ""
+
+#: include/options.php:74
+#@ tto
+msgid "Author"
+msgstr ""
+
+#: include/options.php:75
+#@ tto
+msgid "Editor"
+msgstr ""
+
+#: include/options.php:76
+#@ tto
+msgid "Administrator"
+msgstr ""
+
+#: include/options.php:83
+#@ to
+msgid "Auto Sort"
+msgstr "Ordenação automática"
+
+#: include/options.php:86
+#@ tto
+msgid "OFF"
+msgstr ""
+
+#: include/options.php:87
+#@ tto
+msgid "ON"
+msgstr ""
+
+#: include/options.php:88
+#@ to
+msgid "global setting"
+msgstr "Configurações globais"
+
+#: include/options.php:93
+#@ to
+msgid "Admin Sort"
+msgstr "Ordenação pelo Administrador"
+
+#: include/options.php:97
+#@ to
+msgid "This will change the order of terms within the admin interface"
+msgstr "Isso mudará a ordem dos itens dentro do painel de administração"
+
+#: include/options.php:105
+#@ to
+msgid "Autosort OFF"
+msgstr "Ordenação automática OFF"
+
+#: include/options.php:106
+#@ to
+msgid "No query will be changed, the terms will appear in the original order. To retrieve the terms in the required order you must use the term_order on the orderby parameter"
+msgstr "Nenhuma informação será alterada, as informações aparecerão na mesma ordem original. Para retornar as informações na ordem informada você deve usar o term_order no parâmetro orderby"
+
+#: include/options.php:114
+#@ to
+msgid "See more info on the get_terms usage"
+msgstr "Veja mais informações sobre o uso get_terms"
+
+#: include/options.php:114
+#@ to
+msgid "here"
+msgstr "Aqui"
+
+#: include/options.php:116
+#@ to
+msgid "Autosort ON"
+msgstr "Ordenação automática ON"
+
+#: include/options.php:117
+#@ to
+msgid "The queries will be updated, all terms will appear in the order you manually defined. This is recommended if you don't want to change any theme code to apply the terms order"
+msgstr "As informações serão atualizadas, na ordem que você definiu manualmente. Isso é recomendado quando não é necessário alterar o código do tema para aplicar uma nova ordem"
+
+#: include/options.php:127
+#@ to
+msgid "Save Settings"
+msgstr "salvar configurações"
+
+#: taxonomy-terms-order.php:88
+#@ to
+msgid "Taxonomy Terms Order"
+msgstr "Ordenação das categorias"
+
+#: taxonomy-terms-order.php:114
+#: taxonomy-terms-order.php:116
+#@ to
+msgid "Taxonomy Order"
+msgstr "Reordenar Categorias"
+
