@@ -21,6 +21,7 @@
             }
             echo '<li><a class="'.$cssLinkCategoria." ".$cssLinkAcessado.'" href="'.retornaUrlTag($tag->tag_slug,$urlCategorias).'">'.$tag->tag_name.'</a></li>';
         }   
-    }   
+    }  
+    
     echo '</ul>';                    	
 ?>

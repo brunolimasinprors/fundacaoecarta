@@ -14,7 +14,7 @@ get_header();
     <main id="main" class="site-main" role="main">
         <div class="page-content">
             <div class="row">
-                <div class="content-area col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <div class="content-area col-xs-12 col-sm-3 col-md-3 col-lg-4">
                     <?php
                     /* =================================================================================================================	
                     '* Exibe menu lateral
@@ -22,7 +22,7 @@ get_header();
                     get_template_part('content-menu_lateral', get_post_format());
                     ?>                    
                 </div>				
-                <div class="content-area col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                <div class="content-area col-xs-12 col-sm-9 col-md-9 col-lg-8">
                     <?php
                     $tag = get_term_by('id', get_query_var('tag_id'), 'post_tag');                    
                     if ($tag) {

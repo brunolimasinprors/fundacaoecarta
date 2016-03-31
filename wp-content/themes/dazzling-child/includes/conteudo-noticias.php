@@ -10,18 +10,20 @@
     
   $Conteudo = null;
    
-
-   $Conteudo .= '<div class="caixa-noticias" >';     
+  $Conteudo .= '<div  class="area-total-noticias media">';     
+    
   $Conteudo .= ' <a href="'.get_permalink().'">';
       if ($objImagem){										
           $Conteudo .= '<img class="img-responsive imagem-noticias" src="'.$objImagem["url"].'"  alt="'.$creditoImagem.'"  title="'.$creditoImagem.'" width="130"/>';
-      }	
+      }	else {
+          $Conteudo .= '<div class="sem-imagem"></div>';
+      }
        $Conteudo .= ' </a>';
       $Conteudo .= '<div class="box-titulo-noticias">';
 
          $Conteudo .= ' <a href="'.get_permalink().'">';
-          $Conteudo .= ' <h4 class="titulo-noticias">'.get_field('chamada_post').'</h4>';
-          $Conteudo .= '<h5 class="data-noticia">'.$Dia.' de '.$Mes. ' de '.$Ano. '</h5>';
+          $Conteudo .= ' <h5 class="titulo-noticias">'.get_field('chamada_post').'</h5>';
+          $Conteudo .= '<h6 class="data-noticia">'.$Dia.' de '.$Mes. ' de '.$Ano. '</h6>';
          $Conteudo .= ' </a>';
           $Conteudo .= '</div>';
           
@@ -33,7 +35,8 @@
        
 				
     $Conteudo .= '</div>';    
-    
+   
+     ;   
    echo $Conteudo;   
      
      

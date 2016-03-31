@@ -31,6 +31,8 @@ $count = 0;
 
 $idCategoriaPrincipal = retornaIdCategoriaPrincipalPost($post->ID);
 $aryDadosCategoria = retornaLayoutCategoriaPrincipal($idCategoriaPrincipal);
+
+echo '<div class="espacamento-noticias">';
 while ($query->have_posts()) {
     $query->the_post();
     /* =======================================================================================================	
@@ -40,7 +42,8 @@ while ($query->have_posts()) {
     $count ++;
 }
 
-
+echo '</div>';
+ 
 
 $totalPaginas = $query->max_num_pages; // need an unlikely integer
 //echo str_replace( $big, '%#%', esc_url(get_pagenum_link($big)));

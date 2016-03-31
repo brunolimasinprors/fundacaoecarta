@@ -1035,7 +1035,7 @@ div.painel-historico-eventos{
     -moz-appearance: none; /* Remove estilo padrão do FireFox */
     appearance: none; /* Remove estilo padrão do FireFox*/
     background: url(http://localhost/fundacaoecarta/wp-content/themes/dazzling-child/imagens/arrow1.png) no-repeat right;
-    padding:0;
+    padding:3px;
 }
 
 @media  (max-width:1200px){
@@ -1094,40 +1094,52 @@ select::-ms-expand {
 
 */
 
+.espacamento-noticias{
+    margin-top: 17px;
+    
+}
+.area-total-noticias{
+    position:relative;
+    height: auto;
+    margin-bottom: 43px;
+    margin-left: -5px;
+}
+
 .box-titulo-noticias{
     position:relative;
     width:84%;
     height:auto;   
 }
 
+.area-total-noticias:last-child{
+    margin-bottom: 20px;
+}
+
 .caixa-noticias{
-    margin-top: 24px;
-    height: 95px;   
+    height: auto;   
 }
 
 .imagem-noticias{
     float:left;
     margin-right:10px;
+   
+    
 }
 
 .titulo-noticias{
     margin-top: 0px;
-    margin-bottom: -12px;
     color: #373435;
     font-weight: bold;
     position: relative;
-    top: -5px;
+   margin-bottom: 2px;
 }
 
 .caixa-descricao-noticias{
-    position:relative;
-    width:64%;
-    height:40px;
     overflow: hidden;
     line-height: 1;
-    top:6px;
     color:#A0A1A3;
     text-align: left;   
+   
 }
 
 .caixa-descricao-noticias p{
@@ -1141,8 +1153,10 @@ select::-ms-expand {
 
 .data-noticia{
     color:#77787B;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;   
+    margin-bottom: 16px;
+    margin-top: 0px;
 }
 
 .apoio-espacamento{
@@ -1177,11 +1191,11 @@ select::-ms-expand {
 @media  (max-width:1000px){
     .caixa-noticias {
         margin-top: 0px;
-        margin-bottom: 60px;
+        
     }
 }
-
-@media  (max-width:530px){
+   
+@media  (min-width:330px) and (max-width:540px){
     .box-titulo-noticias {
         width: 100%;
         margin-bottom: 15px;
@@ -1204,10 +1218,33 @@ select::-ms-expand {
     }
 
     .menu-paginas-noticias{
-        margin-top:120px;
+        margin-top:70px;
     }
 }
 
+@media  (min-width:280px) and (max-width:330px){
+    .menu-paginas-noticias{
+        margin-top:60px;
+    }
+   
+   
+}
+@media  (max-width:280px){
+    .imagem-noticias {
+        margin: auto;
+    margin-right: 35px;
+    margin-bottom: 7px;
+    }
+    area-total-noticias{
+        height:auto;
+    }
+    .caixa-noticias{
+        margin-bottom:0;
+        height:auto;
+        
+    }
+    
+}
 div.sharedaddy a.sd-button {
     background: none !important; 
 }
@@ -1235,8 +1272,7 @@ div.sharedaddy a.sd-button {
 
 @media  (min-width:1050px){
     .area-conteudo-padrao {
-      left: 97px;
-      width:600px;
+     
        
     }
 }
@@ -1244,6 +1280,56 @@ div.sharedaddy a.sd-button {
 /*
     
     Fim apresentação
+
+*/
+
+/***************************************/
+
+/*
+    
+    Busca | Leonardo
+
+*/
+
+.titulo-busca{
+   font-size:16px;
+   color:#727376;
+   font-weight: bold;
+   margin-top: 25px;
+   margin-bottom: 19px;
+}
+.titulo-busca span{
+    font-weight: normal;
+}
+.titulo-busca-conteudo{
+    margin-top: 0px;
+    color: #373435;
+    font-weight: bold;
+    position: relative;
+   margin-bottom: -5px;
+}
+.conteudo-linha-apoio-busca{
+    font-size:12px;
+    
+}
+
+.linha-h4-busca{
+    margin-top:15px;
+    margin-bottom:15px !important;
+    
+}
+
+.espacamento-busca{
+    margin-bottom: -55px !important;
+    
+}
+.espacamento-busca-erro{
+    margin-bottom: 45px;
+    
+}
+/*
+    
+    Fim Busca
 
 */
 

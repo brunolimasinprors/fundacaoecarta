@@ -24,10 +24,7 @@ while ($query->have_posts()) {
     $query->the_post(); //> recupera o próximo post a ser exibido
     $Conteudo .= '<a href="' . $urlCategorias . $query->post->post_name . '">';
     $Conteudo .= '<div class="media-body">';
-    //if ($objImagem){										
-    //$Conteudo .= '<img class="img-responsive imagem-agenda" src="'.$objImagem["url"].'"  alt="'.$creditoImagem.'"  title="'.$creditoImagem.'" width="70"  />';
-    //}		
-    //.the_title().
+    
     $Conteudo .= '<h4 class="media-heading">' . get_the_title() . '</h4>';
     $Conteudo .= '<div style="display: table-cell;">';
     $Conteudo .= '<small>conteúdo</small><br/>';
