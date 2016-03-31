@@ -274,7 +274,7 @@ function get_category_tags($idCategoria) {
                                     t2.taxonomy = 'post_tag' 
                                     AND p2.post_status = 'publish'
                                     AND p1.ID = p2.ID
-                            ORDER BY post_total DESC
+                            ORDER BY terms2.term_order asc
                 ");
     $count = 0;
     foreach ($tags as $tag) {

@@ -35,10 +35,10 @@ if ($query->have_posts()) {
     $arrAnosPublicados = array();
 
     $queryAux = $query;
-
+    
     /*
      * Retorno todos os anos dos eventos publicados separadamente
-     */
+     */    
     while ($queryAux->have_posts()) {
         $queryAux->the_post();
         $anoFim = date('Y', strtotime(get_field("data_fim_area_2")));
@@ -50,7 +50,6 @@ if ($query->have_posts()) {
 
     echo '<div class="panel-group espacamento-painel-dropdown-historico-eventos" id="historico" role="tablist" aria-multiselectable = "true">';
     foreach ($arrAnosPublicados as $anoPublicacao) {
-
         if ($anoPublicacao !== $ultimoAno) {
             ?>
                 <div class ="panel panel-default painel-historico-eventos">
@@ -67,19 +66,14 @@ if ($query->have_posts()) {
                                 <?php
                                 while ($query->have_posts()) {
                                     $query->the_post();
-
                                     $anoFim = null;
                                     $anoFim = date('Y', strtotime(get_field("data_fim_area_2")));
-
                                     if ($anoFim == $anoPublicacao) {
-
                                         /* =======================================================================================================	
-                                          '* Exibe Conteúdo do histórico
-                                          '======================================================================================================== */
-
+                                        '* Exibe Conteúdo do histórico
+                                        '======================================================================================================== */
                                         include(get_template_directory() . "-child/includes/conteudo-historico.php");
                                     } //if ($anoFim == $anoPublicacao) {
-
                                     unset($anoFim); //evitar erros de sujeira na memória
                                 } //while ($query->have_posts()) {
                                 ?>
@@ -93,7 +87,8 @@ if ($query->have_posts()) {
         $count++; //controlar o primeiro registro
     } //foreach ($arrAnosPublicados as $anoPublicacao) {
     echo '</div>';
-    
+}else{    
+   echo "Nenhum histórico de evento encontrado.";    
 } //if ($query->have_posts()) {
 
 unset($query);
